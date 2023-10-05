@@ -1,17 +1,27 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import "@app/globals.css";
+import "bootstrap/dist/css/bootstrap.css";
 
-const inter = Inter({ subsets: ['latin'] })
-
+import MainWrapper from "@app/MainWrapper";
 export const metadata = {
-  title: 'EHR-System',
-  description: 'EHR-System',
-}
+  title: "EHR System",
+  description: "EHR System",
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='en'>
+      <head>
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta name='description' content={metadata.description} />
+        <title>{metadata.title}</title>
+      </head>
+      <body className='menu-opened'>
+          <MainWrapper>
+           {children}
+          </MainWrapper>
+  
+      </body>
     </html>
-  )
+  );
 }

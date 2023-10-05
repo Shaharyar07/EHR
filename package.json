@@ -11,7 +11,21 @@
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
-    "next": "13.5.4"
+    "next": "13.5.4",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "bootstrap": "^5.2.3",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "feather-icons-react": "^0.6.2",
+    "lodash": "^4.17.21",
+    "lokijs": "^1.5.12",
+    "luxon": "^3.3.0",
+    "mirco": "^0.0.1",
+    "pino-pretty": "^10.0.0",
+    "react-bootstrap": "^2.7.2"
   },
   "devDependencies": {
     "eslint": "^8",
