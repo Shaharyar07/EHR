@@ -324,7 +324,7 @@ table.table td h2 span {
   margin-bottom: 20px;
 }
 .cal-icon:after {
-  /* background: url(../assets/img/icons/calendar-icon.svg) no-repeat; */
+  background: no-repeat;
   display: block;
   height: 24px;
   position: absolute;
@@ -339,7 +339,8 @@ table.table td h2 span {
   width: 100%;
 }
 .time-icon:after {
-  /* background: url(../assets/img/clock.png) no-repeat; */
+  /* background: url(./assets/img/clock.png) no-repeat; */
+  background:  no-repeat;
   display: block;
   height: 19px;
   position: absolute;
@@ -1490,7 +1491,8 @@ a.fc-event:not([href]) {
 }
 .login-wrap .login-sec {
   position: absolute;
-  /* background-image: url(../assets/img/login-0l.png); */
+  /* background-image: url(../assets/img/login-0l.png);
+   */
   background-repeat: no-repeat;
   background-position: top right;
   background-size: cover, auto;
