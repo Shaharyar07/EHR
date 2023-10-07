@@ -9,6 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <>
     <html lang='en'>
       <head>
         <meta charSet='utf-8' />
@@ -23,5 +24,7 @@ export default function RootLayout({ children }) {
   
       </body>
     </html>
+
+    </>
   );
 }

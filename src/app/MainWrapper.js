@@ -1,6 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import "bootstrap/dist/css/bootstrap.css";
+import Header from "./components/layout/Header";
 import { Suspense, useLayoutEffect, useState, useMemo } from "react";
 const MainWrapper = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -36,11 +37,11 @@ const MainWrapper = ({ children }) => {
     >
       {showWrapper ? (
         <>
-          {/* <Header
+          <Header
             toggleSidebar={toggleSidebar}
             toggleMiniSidebar={toggleMiniSidebar}
           />
-          <Sidebar /> */}
+          {/* <Sidebar /> */}
         </>
       ) : null}
       <Suspense fallback={"Loading..."}>
