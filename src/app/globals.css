@@ -102,12 +102,19 @@ a:hover {
   outline: 0;
 }
 .form-control {
-  box-shadow: none;
+  /* box-shadow: none;
   padding: 10px 15px;
   font-size: 14px;
   min-height: 45px;
   border: 2px solid rgba(46, 55, 164, 0.1);
-  border-radius: 10px;
+  border-radius: 10px; */
+  font-size:20px;
+  font-weight: 200;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  padding-left: 18px;
+  margin-top: 4px;
+  padding-top: 12px;
 }
 .form-control::placeholder {
   font-size: 13px;
@@ -299,13 +306,13 @@ table.table td h2 span {
 .card-box {
   background-color: #fff;
   border-radius: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   padding: 20px;
   position: relative;
 }
 .card-title {
   color: #333448;
-  font-size: 16px;
+  font-size: 20px;
 }
 .calendar header .month,
 .font-18,
@@ -613,6 +620,7 @@ table.table td h2 span {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .card {
+  margin-top:2%;
   margin-bottom: 25px;
   border: 0;
   border-radius: 12px;
@@ -1219,12 +1227,13 @@ a.fc-event:not([href]) {
 }
 .page-wrapper {
   left: 0;
-  margin-left: 250px;
-  padding-top: 30px;
+  margin-left: 100px;
+  padding-top: 67px;
   position: relative;
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
   transition: 0.4s;
+  margin-right:100px;
 }
 .page-wrapper > .content {
   padding: 30px 30px 0;
@@ -2692,7 +2701,7 @@ table.dataTable thead .sorting_desc_disabled:before {
   overflow: hidden;
 }
 .profile-basic {
-  margin-left: 140px;
+  margin-left: 32px;
 }
 .fileupload.btn {
   position: absolute;
@@ -4623,9 +4632,9 @@ a.status-grey {
 }
 .local-forms label,
 .local-top-form .local-top {
-  font-size: 12px;
-  color: #333448;
-  font-weight: 500;
+  font-size: 13px;
+  color: #616271a1;;
+  font-weight: 501;
   position: absolute;
   top: -10px;
   left: 10px;
@@ -4633,6 +4642,7 @@ a.status-grey {
   margin-bottom: 0;
   padding: 0 5px;
   z-index: 99;
+
 }
 .local-forms
   .select2-container--default
@@ -5977,4 +5987,9 @@ form .btn-secondary {
     text-align: center;
     margin: 0 auto 10px;
   }
+}
+
+.profile-basic .myfield{
+  font-size: 18px;
+  margin-bottom: 1.5rem;
 }
