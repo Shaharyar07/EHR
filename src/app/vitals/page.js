@@ -70,14 +70,33 @@ const page = () => {
               <div className="col-12 col-md-6 col-xl-4">
                 <div className="form-group local-forms">
                   <label>
-                   Breath/min<span className="login-danger">*</span>
+                  Respiratory Rate<span className="login-danger">*</span>
                   </label>
                   <input className="form-control" type="text" />
                 </div>
               </div>
           
           </div>
-                  
+          <div className='row'>
+              <div className="col-12 col-md-6 col-xl-4">
+                <div className="form-group local-forms">
+                  <label>
+                    Weight<span className="login-danger">*</span>
+                  </label>
+                  <input className="form-control" type="text" />
+                </div>
+              </div>
+    
+              <div className="col-12 col-md-6 col-xl-4">
+                <div className="form-group local-forms">
+                  <label>
+                   Heigth<span className="login-danger">*</span>
+                  </label>
+                  <input className="form-control" type="text" />
+                </div>
+              </div>
+          
+          </div>        
           <div className='col-md-12'>
             <button
               type='submit'
