@@ -269,7 +269,7 @@ const page = () => {
                       >
                       <option value=''>Constitutional Symptoms</option>
                       <option value='Acute'>Acute</option>
-                      <option value='Chronic'>Chronic</option>
+                      
                      
                     </select>
                 </div>
