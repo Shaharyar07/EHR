@@ -4,46 +4,19 @@ import "bootstrap/dist/css/bootstrap.css";
 import Header from "./components/layout/Header";
 import { Suspense, useLayoutEffect, useState, useMemo } from "react";
 const MainWrapper = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [miniSidebar, setMiniSidebar] = useState(false);
-
-  const pathname = usePathname();
-
-  const showWrapper = useMemo(
-    () => !["/login", "/register", "/forget", "/reset"].includes(pathname),
-    [pathname]
-  );
-
-  useLayoutEffect(() => {
-    setSidebarOpen(false);
-  }, [showWrapper]);
-
-  const toggleSidebar = () => {
-    setSidebarOpen((prev) => !prev);
-  };
-  const toggleMiniSidebar = () => {
-    setMiniSidebar((prev) => !prev);
-  };
+ 
+  //check if path is /login or /register
+  const path = usePathname();
+  console.log(path);
 
   return (
     <main
-      className={`main-wrapper ${
-        sidebarOpen
-          ? "sidebar-overlay slide-nav opened"
-          : "" || miniSidebar
-          ? "mini-sidebar"
-          : ""
-      }`}
+      className={`main-wrapper `}
     >
-      {showWrapper ? (
-        <>
-          <Header
-            toggleSidebar={toggleSidebar}
-            toggleMiniSidebar={toggleMiniSidebar}
-          />
-          {/* <Sidebar /> */}
-        </>
-      ) : null}
+     {
+      path == "/login" ? null :<Header  />
+     }
+      
       <Suspense fallback={"Loading..."}>
         <main className={`page-wrapper`}>{children}</main>
       </Suspense>

@@ -9,7 +9,7 @@ import Link from "next/link";
 import Profile from "../client/Profile.jsx";
 
 
-const Header = ({ toggleSidebar, toggleMiniSidebar }) => {
+const Header = () => {
   
   return (
     <div className='header'>
@@ -19,17 +19,17 @@ const Header = ({ toggleSidebar, toggleMiniSidebar }) => {
           <span>EHR</span>
         </Link>
       </div>
-      <div id='toggle_btn' onClick={toggleMiniSidebar}>
+      {/* <div id='toggle_btn'>
         <Image src={bar} alt='bar' />
-      </div>
-      <Link
+      </div> */}
+      {/* <Link
         href='#'
         id='mobile_btn'
         className='mobile_btn float-start'
         onClick={toggleSidebar}
       >
         <Image src={bar} alt='bar' />
-      </Link>
+      </Link> */}
       <div className='top-nav-search mob-view'>
         <form>
           <input

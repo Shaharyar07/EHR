@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "@app/assets/img/icons/login-icon-02.svg";
+import logo from "@app/assets/img/login-02.png";
 import LoginForm from "@app/components/forms/LoginForm";
 
 const Login = () => {
@@ -10,7 +10,7 @@ const Login = () => {
           <div className='col-lg-6 login-wrap'>
             <div className='login-sec'>
               <div className='log-img'>
-                {/* <Image src={logo} alt='' /> */}
+                <Image src={logo} alt='' />
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import FeatherIcon from "feather-icons-react";
+
 import Link from "next/link";
 import CreateProfileForm from "@app/components/forms/CreateProfileForm";
 
