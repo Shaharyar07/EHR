@@ -672,7 +672,7 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                       <option value=''>Select Option</option>
+                       {/* <option value=''>Select Option</option>
                        <option value=''></option>
                        <option value=''></option>
                        <option value=''></option>
@@ -685,7 +685,7 @@ const page = () => {
                        <option value=''></option>
                        <option value=''></option>
                        <option value=''></option>
-                       <option value=''></option>
+                       <option value=''></option> */}
                     </select>
                   </div>
               </div>         
