@@ -13,7 +13,7 @@ const page = () => {
                   <h4>Patient Vitals</h4>
                 </div>
               </div>
-              <div className="col-12 col-md-6 col-xl-4">
+              <div className="col-md-6">
                 <div className="form-group local-forms">
                   <label>
                     Patient Name <span className="login-danger">*</span>
@@ -26,7 +26,7 @@ const page = () => {
                 </select>
                 </div>
               </div>
-              <div className="col-12 col-md-6 col-xl-4">
+              <div className="col-md-6">
                 <div className="form-group local-forms">
                   <label>
                     MR Number <span className="login-danger">*</span>
@@ -37,7 +37,7 @@ const page = () => {
            </div>
       
       <div className='row'>
-              <div className="col-12 col-md-6 col-xl-4">
+              <div className="col-md-6 ">
                 <div className="form-group local-forms">
                   <label>
                     BP <span className="login-danger">*</span>
@@ -47,7 +47,7 @@ const page = () => {
               </div>
          
   
-              <div className="col-12 col-md-6 col-xl-4">
+              <div className="col-md-6 ">
                 <div className="form-group local-forms">
                   <label>
                     Pulse Rate<span className="login-danger">*</span>
@@ -58,7 +58,7 @@ const page = () => {
          
       </div>
          <div className='row'>
-              <div className="col-12 col-md-6 col-xl-4">
+              <div className=" col-md-6 ">
                 <div className="form-group local-forms">
                   <label>
                     Temprature<span className="login-danger">*</span>
@@ -67,7 +67,7 @@ const page = () => {
                 </div>
               </div>
     
-              <div className="col-12 col-md-6 col-xl-4">
+              <div className="col-md-6 ">
                 <div className="form-group local-forms">
                   <label>
                   Respiratory Rate<span className="login-danger">*</span>
@@ -78,7 +78,7 @@ const page = () => {
           
           </div>
           <div className='row'>
-              <div className="col-12 col-md-6 col-xl-4">
+              <div className="col-md-6 ">
                 <div className="form-group local-forms">
                   <label>
                     Weight<span className="login-danger">*</span>
@@ -87,7 +87,7 @@ const page = () => {
                 </div>
               </div>
     
-              <div className="col-12 col-md-6 col-xl-4">
+              <div className="col-md-6 ">
                 <div className="form-group local-forms">
                   <label>
                    Heigth<span className="login-danger">*</span>
@@ -98,11 +98,13 @@ const page = () => {
           
           </div>        
           <div className='col-md-12'>
+           
             <button
               type='submit'
-              className='btn btn-primary btn-rounded center'>
-              Submit
+              className=' btn btn-primary btn-rounded center myVitalButton'>
+              Submit Vitals
             </button>
+         
          </div>
         </form>
         </div>
