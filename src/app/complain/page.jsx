@@ -846,7 +846,7 @@ const page = () => {
           <div className='col-md-12'>
             <button
               type='submit'
-              className='btn btn-primary btn-rounded center'
+              className='btn btn-primary btn-rounded center myButton'
             >
               Submit
             </button>
