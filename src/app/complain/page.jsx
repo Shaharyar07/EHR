@@ -266,12 +266,16 @@ const page = () => {
                     <select
                       className='form-control select'
                       name='character'
-                      >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                     >
+                      <option value=''>Select Option</option>
+                      <option value='fatigue'>fatigue</option>
+                      <option value='lethargy'>lethargy</option>
+                      <option value='malaise'>malaise</option>
+                      <option value='weight loss'>weight loss</option>
+                      <option value='night sweats'>night sweats</option>
+                      <option value='bone pain'>bone pain</option>
+                      <option value='lassitude'>lassitude</option>
+                    
                     </select>
                   </div>
               </div>
@@ -282,11 +286,13 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='fatigue'>fatigue</option>
+                      <option value='SOB'>SOB</option>
+                      <option value='Exercise Tderance'>Exercise Tderance</option>
+                      <option value='Light Headache'>Light Headache</option>
+                      <option value='Worsening Angina'>Worsening Angina</option>
+                      <option value='Ankle Swelling'>Ankle Swelling</option>
                     </select>
                   </div>
               </div>
@@ -297,11 +303,10 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Mouth Ulcer'>Mouth Ulcer</option>
+                      <option value='Skin Infection'>Skin Infection</option>
+                      <option value='Other Recurrent infections'>Other Recurrent Infections</option>
                     </select>
                   </div>
               </div>
@@ -312,11 +317,11 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Unexplained nose bleed'>Unexplained nose bleed</option>
+                      <option value='Bleeding gum'>Bleeding gum</option>
+                      <option value='Easy Brusing'>Easy Brusing</option>
+                      <option value='Epistaxis'>Epistaxis</option>
                     </select>
                   </div>
                 </div>
@@ -327,11 +332,10 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Enlarge/Painful Lymphnodes'>Enlarge/Painful Lymphnodes</option>
+                      <option value='Painful Spleenomegaly'>Painful Spleenomegaly</option>
+                      <option value='B Symptoms'>B Symptoms</option>
                     </select>
                   </div>
                </div>
@@ -342,11 +346,11 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Neuropathy'>Neuropathy</option>
+                      <option value='Epistaxis'>Epistaxis</option>
+                      <option value='Headache'>Headache</option>
+                      <option value='Blurred Vision'>Blurred Vision</option>
                     </select>
                   </div>
               </div>
@@ -357,11 +361,9 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Swelling/Limbpain'>Swelling/Limbpain</option>
+                      <option value='Chest Pain'>Chest Pain</option>
                     </select>
                   </div>
                 </div>
@@ -372,11 +374,10 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Acute'>Acute</option>
+                      <option value='Chronic'>Chronic</option>
+                     
                     </select>
                   </div>
                 </div>
@@ -401,11 +402,19 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='AML'>AML</option>
+                      <option value='ALL'>ALL</option>
+                      <option value='CML'>CML</option>
+                      <option value='CLL'>CLL</option>
+                      <option value='Lymphoma'>Lymphoma</option>
+                      <option value='Inherited Hematologic Disorder'>Inherited Hematologic Disorder</option>
+                      <option value='Haemchromatosis'>Haemchromatosis</option>
+                      <option value='Haemophilia'>Haemophilia</option>
+                      <option value='Thalessimia'>Thalessimia</option>
+                      <option value='LPNs'>LPNs</option>
+                      <option value='Sibling'>Any Sibling with ALL</option>
+                      <option value='twin'>Any Identical twin with ALL Disorder</option>
                     </select>
                   </div>
               </div>
@@ -432,11 +441,14 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='A'>A</option>
+                      <option value='B'>B</option>
+                      <option value='C'>C</option>
+                      <option value='D'>D</option>
+                      <option value='E'>E</option>
+                      <option value='Neonatal'>Neonatal Hepatitis</option>
+                      
                     </select>
                   </div>
               </div>
@@ -571,7 +583,11 @@ const page = () => {
                       name='character'
                       >
                       <option value=''>Select Option</option>
-                
+                      <option value='Aplastic'>Aplastic Anemia</option>
+                      <option value='Iron'>Iron Deficency Anemia'</option>
+                      <option value='Haemolytic'>Haemolytic Anemia</option>
+                      <option value='Sickle'>Sickle cell Anemia</option>
+                      <option value='Thalassemia'>Thalassemia</option>
                     </select>
                   </div>
               </div>
@@ -582,8 +598,12 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      <option value=''>Select Option</option>
-                
+                    <option value=''>Select Option</option>
+                    <option value='ITP'>ITP</option>
+                    <option value='DIC'>DIC</option>
+                    <option value='TTP'>TTP</option>
+                    <option value='HUS'>HUS</option>
+                    <option value='HELLP'>HELLP</option>
                     </select>
                   </div>
               </div>
@@ -608,11 +628,11 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='RCB'>RCB</option>
+                      <option value='Platelets'>Platelets</option>
+                      <option value='Plasma Products'>Plasma Products</option>
+                 
                     </select>
                   </div>
               </div>
@@ -623,9 +643,9 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
+                      <option value=''>Select Option</option>
+                      <option value='Infections'>Infections</option>
+                      {/* <option value='Dull'>Dull</option>
                       <option value='Burning'>Burning</option>
                       <option value='Pressure Like'>Pressure Like</option> */}
                     </select>
@@ -638,11 +658,10 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Autologous Stem cell'>Autologous Stem cell</option>
+                      <option value='Allogenic Stem cell'>Allogenic</option>
+                      
                     </select>
                   </div>
               </div>
@@ -653,11 +672,28 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                       <option value=''>Select Option</option>
+                       <option value='hakeem'>Hakeem Medication</option>
+                       <option value='Antiplatelets'>Antiplatelets</option>
+                       <option value='Oral Contraceptives'>Oral Contraceptives</option>
+                       <option value='Hormone Replacement'>Hormone Replacement</option>
+                       <option value='COX-2 Inhibitors'>COX-2 Inhibitors</option>
+                       <option value='Erythropoietin'>Erythropoietin</option>
+                       <option value='Warfarin'>Warfarin</option>
+                       <option value='Antipsychotics'>Antipsychotics</option>
+                       <option value='Anticonvulsauts'>Anticonvulsauts</option>
+                       <option value='Antithyroid Drugs'>Antithyroid Drugs</option>
+                       <option value='Antibiotics'>Antibiotics</option>
+                       <option value='Chemotherapy'>Chemotherapy</option>
+                       <option value='Adreraline'>Adreraline</option>
+                       <option value='Lithium'>Lithium</option>
+                       <option value='G-CSF'>G-CSF</option>
+                       <option value='Penicillin'>Penicillin</option>
+                       <option value='Cephalosporing'>Cephalosporing</option>
+                       <option value='Carbamazepine'>Carbamazepine</option>
+                       <option value='H2-blokers'>H2-blokers</option>
+                       <option value='PPIS'>PPIS</option>
+                       <option value='Phenytoin'>Phenytoin</option>
                     </select>
                   </div>
               </div>         
@@ -684,11 +720,10 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Jaundice'>Jaundice</option>
+                      <option value='Pallor'>Pallor</option>
+                      <option value='Plethora'>Plethora</option> 
                     </select>
                   </div>
               </div>
@@ -699,11 +734,9 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Mouth Ulcer'>Mouth Ulcer</option>
+                      <option value='Gum Swelling'>Gum Swelling</option>
                     </select>
                   </div>
               </div>
@@ -714,26 +747,24 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Yes'>Yes</option>
+                      <option value='No'>No</option>
                     </select>
                   </div>
               </div>
               <div className='col-md-6'>
                   <div className='form-group local-forms'>
-                    <label className='focus-label'>Abdominal</label>
+                    <label className='focus-label'>Visceral Examination</label>
                     <select
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Spleen'>Spleen</option>
+                      <option value='Palpable maoses'>Palpable maoses</option>
+                      <option value='tenderness'>tenderness</option>
+                      
                     </select>
                   </div>
               </div>         
@@ -744,45 +775,18 @@ const page = () => {
                       className='form-control select'
                       name='character'
                       >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                      <option value=''>Select Option</option>
+                      <option value='Pallor'>Pallor</option>
+                      <option value='Redness'>Redness</option>
+                      <option value='Cyanosis'>Cyanosis</option>
+                      <option value='Petechia'>Petechia</option>
+                      <option value='Excoriation'>Excoriation</option>
+                      <option value='Leg Ucler'>Leg Ucler</option>
                     </select>
                   </div>
               </div> 
 
-              <div className='col-md-6'>
-                  <div className='form-group local-forms'>
-                    <label className='focus-label'>Spleen Abdominal Visceral Examination</label>
-                    <select
-                      className='form-control select'
-                      name='character'
-                      >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
-                    </select>
-                  </div>
-              </div> 
-              <div className='col-md-6'>
-                  <div className='form-group local-forms'>
-                    <label className='focus-label'>Liver Visceral Examination</label>
-                    <select
-                      className='form-control select'
-                      name='character'
-                      >
-                      {/* <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
-                    </select>
-                  </div>
-              </div> 
+             
             </div>
             </div>
           </div>
