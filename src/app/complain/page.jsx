@@ -584,7 +584,7 @@ const page = () => {
                       >
                       <option value=''>Select Option</option>
                       <option value='Aplastic'>Aplastic Anemia</option>
-                      <option value='Iron'>Iron Deficency Anemia'</option>
+                      <option value='Iron'>Iron Deficency Anemia</option>
                       <option value='Haemolytic'>Haemolytic Anemia</option>
                       <option value='Sickle'>Sickle cell Anemia</option>
                       <option value='Thalassemia'>Thalassemia</option>
