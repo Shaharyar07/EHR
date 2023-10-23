@@ -60,16 +60,15 @@ const page = () => {
               <div className='row'>
               <div className='col-md-6'>
                   <div className='form-group local-forms'>
-                    <label className='focus-label'>Character</label>
+                    <label className='focus-label'>Generalized Bone & Joint Pain</label>
                     <select
                       className='form-control select'
-                      name='character'
+                      name='Generalized Bone & Joint Pain'
                       >
                       <option value=''>Select Option</option>
-                      <option value='Sharp'>Sharp</option>
-                      <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option>
+                      <option value='Yes'>Yes</option>
+                      <option value='No'>No</option>
+                      
                     </select>
                   </div>
                 </div>
@@ -91,24 +90,17 @@ const page = () => {
                         </label>
                         </div>
 
-                        <div className="form-check-inline">
-                        <label className="form-check-label">
-                            <input type="radio" name="Site" className="form-check-input" />
-                            Generalized
-                        </label>
-                        </div>
+                     
                      </div>
                 </div>
                 <div className='col-md-6'>
                   <div className='form-group local-forms'>
-                    <label className='focus-label'>Radiating Pain</label>
+                    <label className='focus-label'>Unilateral or Bilateral Localized Site</label>
                     <select
                       className='form-control select'
                       name='radiating pain'
                       >
-                      <option value=''>Select Option</option>
-                      <option value='Yes'>Yes</option>
-                      <option value='No'>No</option>
+                       <input className="form-control" type="text" />
                     
                     </select>
                   </div>
@@ -254,7 +246,7 @@ const page = () => {
 {/* Symptom History */}
 
 <div className='card-box p-4'>
-        <h3 className='card-title mb-3'>Symptom History</h3>
+        <h3 className='card-title mb-3'>Signs and Symptoms</h3>
         <div className='row'>
           <div className='col-md-12'>
            <div className='profile-basic2'>
@@ -268,14 +260,17 @@ const page = () => {
                       name='character'
                      >
                       <option value=''>Select Option</option>
+
                       <option value='fatigue'>fatigue</option>
                       <option value='lethargy'>lethargy</option>
                       <option value='malaise'>malaise</option>
                       <option value='weight loss'>weight loss</option>
                       <option value='night sweats'>night sweats</option>
                       <option value='bone pain'>bone pain</option>
-                      <option value='lassitude'>lassitude</option>
-                    
+                      <option value='fever'>fever</option>
+                      <option value='early satiety'>early satiety</option>
+                      <option value='vomiting'>vomiting</option>
+                      <option value='loss of appetite'>loss of appetite</option>
                     </select>
                   </div>
               </div>
@@ -288,11 +283,14 @@ const page = () => {
                       >
                       <option value=''>Select Option</option>
                       <option value='fatigue'>fatigue</option>
-                      <option value='SOB'>SOB</option>
-                      <option value='Exercise Tderance'>Exercise Tderance</option>
-                      <option value='Light Headache'>Light Headache</option>
+                      <option value='dizziness'>dizziness</option>
+                      <option value='Dyspnea (SOB)'>Dyspnea with Mild Exertion(SOB)</option>
+                      <option value='Decreased Exercise Tolerance'>Decreased Exercise Tolerance</option>
+                      <option value='Headaches'> Headaches</option>
+                      <option value='Pallor'> Pallor</option>
                       <option value='Worsening Angina'>Worsening Angina</option>
                       <option value='Ankle Swelling'>Ankle Swelling</option>
+                      <option value='Palpitations'>Palpitations</option>
                     </select>
                   </div>
               </div>
@@ -304,9 +302,7 @@ const page = () => {
                       name='character'
                       >
                       <option value=''>Select Option</option>
-                      <option value='Mouth Ulcer'>Mouth Ulcer</option>
-                      <option value='Skin Infection'>Skin Infection</option>
-                      <option value='Other Recurrent infections'>Other Recurrent Infections</option>
+                     <option value='Other Recurrent infections'>Recurrent Infections</option>
                     </select>
                   </div>
               </div>
@@ -318,10 +314,8 @@ const page = () => {
                       name='character'
                       >
                       <option value=''>Select Option</option>
-                      <option value='Unexplained nose bleed'>Unexplained nose bleed</option>
-                      <option value='Bleeding gum'>Bleeding gum</option>
-                      <option value='Easy Brusing'>Easy Brusing</option>
-                      <option value='Epistaxis'>Epistaxis</option>
+                      <option value='Yes'>Yes</option>
+                      <option value='No'>No</option>
                     </select>
                   </div>
                 </div>
@@ -367,7 +361,7 @@ const page = () => {
                     </select>
                   </div>
                 </div>
-                <div className='col-md-6'>
+                
                   <div className='form-group local-forms'>
                     <label className='focus-label'>Duration of Signs and Symptomss</label>
                     <select
@@ -380,7 +374,7 @@ const page = () => {
                      
                     </select>
                   </div>
-                </div>
+                
               </div>
             </div>
           </div>
@@ -434,6 +428,24 @@ const page = () => {
            <div className='profile-basic2'>
            
               <div className='row'>
+              <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>Syndromes</label>
+                    <select
+                      className='form-control select'
+                      name='syndromes'
+                      >
+                    <option value=''>Select Option</option>
+                    <option value='Down Syndromes'>Down Syndromes</option>
+                    <option value='Bedkwith-Wiedeman Syndrome'>Bedkwith-Wiedeman Syndrome</option>
+                    <option value='Schwachman Syndrome'>Schwachman Syndrome</option>
+                    <option value='Ataxia-telangiectasia'>Ataxia-telangiectasia</option>
+                    <option value='Blooms Syndrome'>Blooms Syndrome</option>
+                    <option value='Fanocini Anemia'>Fanocini Anemia</option>
+                    <option value='Nijmogen Breakage Syndrome'>Nijmogen Breakage Syndrome</option>
+                    </select>
+                  </div>
+              </div>
               <div className='col-md-6'>
                   <div className='form-group local-forms'>
                     <label className='focus-label'>Hepatitis</label>
@@ -510,7 +522,6 @@ const page = () => {
                       name='character'
                       >
                       <option value=''>Select Option</option>
-                
                       <option value='Yes'>Yes</option>
                       <option value='No'> No</option>
                     </select>
@@ -607,6 +618,36 @@ const page = () => {
                     </select>
                   </div>
               </div>
+              <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>History of Viral Infections</label>
+                    <select
+                      className='form-control select'
+                      name='character'
+                      >
+                    <option value=''>Select Option</option>
+                    <option value='Influenza in child or mother'>Influenza in child or mother</option>
+                    <option value='Measles in child or mother'>Measles in child or mother</option>
+                    <option value='Mumps in child or mother'>Mumps in child or mother</option>
+                    <option value='Chicken pox in child or mother'>Chicken pox in child or mother</option>
+                   
+                    </select>
+                  </div>
+              </div>
+              <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>HIV In Patients</label>
+                    <select
+                      className='form-control select'
+                      name='character'
+                      >
+                      <option value=''>Select Option</option>
+                
+                      <option value='Yes'>Yes</option>
+                      <option value='No'> No</option>
+                    </select>
+                  </div>
+              </div>
             </div>
             </div>
           </div>
@@ -638,16 +679,12 @@ const page = () => {
               </div>
               <div className='col-md-6'>
                   <div className='form-group local-forms'>
-                    <label className='focus-label'>Any Transfusion reaction </label>
+                    <label className='focus-label'>Any Transfusion infection reaction </label>
                     <select
                       className='form-control select'
                       name='character'
                       >
-                      <option value=''>Select Option</option>
-                      <option value='Infections'>Infections</option>
-                      {/* <option value='Dull'>Dull</option>
-                      <option value='Burning'>Burning</option>
-                      <option value='Pressure Like'>Pressure Like</option> */}
+                       <input className="form-control" type="text" />
                     </select>
                   </div>
               </div>
@@ -674,6 +711,7 @@ const page = () => {
                       >
                        <option value=''>Select Option</option>
                        <option value='hakeem'>Hakeem Medication</option>
+                       <option value='Antimalarial Drug'>Antimalarial Drug</option>
                        <option value='Antiplatelets'>Antiplatelets</option>
                        <option value='Oral Contraceptives'>Oral Contraceptives</option>
                        <option value='Hormone Replacement'>Hormone Replacement</option>
@@ -694,6 +732,7 @@ const page = () => {
                        <option value='H2-blokers'>H2-blokers</option>
                        <option value='PPIS'>PPIS</option>
                        <option value='Phenytoin'>Phenytoin</option>
+                       
                     </select>
                   </div>
               </div>         
@@ -761,11 +800,9 @@ const page = () => {
                       name='character'
                       >
                       <option value=''>Select Option</option>
-                      <option value='Spleen'>Spleen</option>
-                      <option value='Palpable maoses'>Palpable maoses</option>
-                      <option value='tenderness'>tenderness</option>
-                      
-                    </select>
+                      <option value='Spleenomegaly '>Spleenomegaly </option>
+                      <option value='Hepatomegaly'>Hepatomegaly </option>
+                      </select>
                   </div>
               </div>         
               <div className='col-md-6'>
@@ -782,6 +819,8 @@ const page = () => {
                       <option value='Petechia'>Petechia</option>
                       <option value='Excoriation'>Excoriation</option>
                       <option value='Leg Ucler'>Leg Ucler</option>
+                      <option value='ecchymoses'>ecchymoses</option>
+                      <option value='easy brusing'>easy bruising</option>
                     </select>
                   </div>
               </div> 
@@ -793,16 +832,87 @@ const page = () => {
         </div>
       </div>
 
-{/* LAB Test */}
-
-<div className='card-box p-4'>
+      <div className='card-box p-4'>
         <h3 className='card-title mb-3'>Transfusion and Transplant History</h3>
         <div className='row'>
           <div className='col-md-12'>
            <div className='profile-basic2'>
            
            <div className='row'>
-           <div className="col-12 col-md-6 col-xl-6">
+              <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>Symptoms of CNS Involvement </label>
+                    <select
+                      className='form-control select'
+                      name='Symptoms of CNS Involvement'
+                      >
+                      <option value=''>Select Option</option>
+                      <option value='Seizure'>Seizure</option>
+                      <option value='Imbalance'>Imbalance</option>
+                      <option value='Facial Muscle Weakness'>Facial Muscle Weakness</option>
+                      <option value='Blurred Vision'>Blurred Vision</option>
+                      <option value='Headache'>Headache</option>
+                    </select>
+                  </div>
+              </div>
+             
+                     
+             
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+     
+{/* LAB Test */}
+
+<div className='card-box p-4'>
+        <h3 className='card-title mb-3'>CBC</h3>
+        <div className='row'>
+          <div className='col-md-12'>
+           <div className='profile-basic2'>
+           
+           <div className='row'>
+           <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'> WBC</label>
+                    <input className="form-control" type="text" />
+                
+                  </div>
+              
+            </div>
+                   <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'> RBC</label>
+                    <input className="form-control" type="text" />
+               </div>
+                  </div>
+                  <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'> Platelets</label>
+                    <input className="form-control" type="text" />
+               </div>
+                  </div>
+
+                  <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'> Neutrophils</label>
+                    <input className="form-control" type="text" />
+               </div>
+                  </div>  
+                  <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'> Lymphocytes</label>
+                    <input className="form-control" type="text" />
+               </div>
+                  </div> 
+
+          
+             
+            </div>
+<div className='row'>
+            <div className="col-12 col-md-6 col-xl-6">
                 <div className="form-group select-gender">
                  <label className="gen-label">Lab Test
                 <span className="login-danger">*</span>
@@ -839,9 +949,65 @@ const page = () => {
                     Microscopic Bone Marrow Examination
                    </label>
                  </div>
+
+                 <div className="form-check-inline">
+                    <label className="form-check-label">
+                   <input type="radio" name="Lab" className="form-check-input" />
+                    Bone Marrow Biopsy
+                   </label>
+                   </div>
+                   <div className="form-check-inline">
+                    <label className="form-check-label">
+                   <input type="radio" name="Lab" className="form-check-input" />
+                    Cytochemistry
+                   </label>
+                   </div>
+
+                   <div className="form-check-inline">
+                    <label className="form-check-label">
+                   <input type="radio" name="Lab" className="form-check-input" />
+                    Flow aytometry and Immunohistochemistry
+                   </label>
+                   </div>
+
+
+
+                   <div className="form-check-inline">
+                    <label className="form-check-label">
+                   <input type="radio" name="Lab" className="form-check-input" />
+                    Chromosome tests
+                   </label>
+                   </div>
+
+                   <div className="form-check-inline">
+                    <label className="form-check-label">
+                   <input type="radio" name="Lab" className="form-check-input" />
+                    Cytogenetics
+                   </label>
+                   </div>
+
+                   <div className="form-check-inline">
+                    <label className="form-check-label">
+                   <input type="radio" name="Lab" className="form-check-input" />
+                    Fluorescent in situ hybridization(FISH)
+                   </label>
+                   </div>
+
+
+                   <div className="form-check-inline">
+                    <label className="form-check-label">
+                   <input type="radio" name="Lab" className="form-check-input" />
+                    Other molecular and Genetic  Lumbar Puncture Test
+                   </label>
+                   </div>
+                   <div className="form-check-inline">
+                    <label className="form-check-label">
+                   <input type="radio" name="Lab" className="form-check-input" />
+                    Other molecular and Genetic Lymph Node Biopsy Test
+                   </label>
+                   </div>
                 </div>
             </div>
-             
             </div>
             </div>
           </div>
@@ -852,11 +1018,12 @@ const page = () => {
               type='submit'
               className='btn btn-primary btn-rounded center myButton'
             >
+              
               Submit
             </button>
           </div>
          
-    </div>
+          </div>
         </form>
         </div>
               </div>
