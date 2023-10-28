@@ -2265,6 +2265,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 .profile-info-left {
   border-right: 2px dashed #ccc;
+  
 }
 .profile-info-left h3 {
   font-size: 20px;
