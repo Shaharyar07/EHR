@@ -44,16 +44,7 @@ const CreateProfileForm = () => {
                   </div>
                 </div>
               
-                <div className='col-md-6'>
-                  <div className='form-group local-forms'>
-                    <label className='focus-label'>birthDate</label>
-                    <input
-                      type='date'
-                      className='form-control floating'
-                      name='birthDate'
-                    />
-                  </div>
-                </div>
+              
                 <div className='col-md-6'>
                   <div className='form-group local-forms '>
                     <label className='focus-label'>Age</label>
@@ -69,7 +60,7 @@ const CreateProfileForm = () => {
                     <label className='focus-label'>Martial Status</label>
                     <select
                       className='form-control select'
-                      name='gender'
+                      name='martial status'
                       >
                       <option value=''>Select Status</option>
                       <option value='Single'>Single</option>
@@ -84,7 +75,7 @@ const CreateProfileForm = () => {
             <input
                type='text'
                className='form-control floating'
-               name='phone'
+               name='occupation'
               />
             </div>
            </div>
@@ -95,10 +86,30 @@ const CreateProfileForm = () => {
             <input
                type='text'
                className='form-control floating'
-               name='phone'
+               name='race'
               />
             </div>
            </div>
+           <div className='col-md-6'>
+            <div className='form-group local-forms'>
+            <label className='focus-label'>Phone Number</label>
+            <input
+               type='text'
+               className='form-control floating'
+               name='phone number'
+              />
+            </div>
+           </div>
+           <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>email</label>
+                    <input
+                      type='email'
+                      className='form-control floating'
+                      name='email'
+                    />
+                  </div>
+                </div>
            <div className='col-md-12'>
             <button
               type='submit'
