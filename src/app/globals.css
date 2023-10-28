@@ -4291,7 +4291,10 @@ form .btn-secondary {
 .myButton{
   margin-left: 750px;
 }
-
+.myButton2{
+  margin-left: 750px;
+  width:200px;
+}
 .myVitalButton{
   margin-left: 901px;
 }
