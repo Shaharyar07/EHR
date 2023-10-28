@@ -100,17 +100,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className='col-md-12'>
-      <Link href={{pathname:"/complain"}}>
-            <button
-             
-              className='btn btn-primary btn-rounded center myButton'
-            >
-              Add Complain
-             
-            </button>
-            </Link>
-          </div>
+     
     </>
   );
 };

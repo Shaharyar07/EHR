@@ -61,14 +61,27 @@ const AddedVitals = () => {
                   </ul>
                 </div>
               </div>
+             
             </div>
           </div>
+          
         </div>
       </div>
     </div>
     <br />
-   
+    <div className='col-lg-12'>
+            <Link href={{pathname:"/complain"}}>
+            <button
+             
+              className='btn btn-primary btn-rounded center myButton2'
+            >
+              Add Complain
+             
+            </button>
+            </Link>
+          </div>
   </div>
+  
   )
 }
 export default AddedVitals;
