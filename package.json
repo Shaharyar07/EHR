@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,8 +11,9 @@
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@prisma/client": "^5.5.2",
     "axios": "^1.4.0",
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^5.1.1",
     "bootstrap": "^5.2.3",
     "crypto": "^1.0.1",
     "dotenv": "^16.3.1",
@@ -21,16 +22,16 @@
     "lokijs": "^1.5.12",
     "luxon": "^3.3.0",
     "mirco": "^0.0.1",
-    "next": "13.5.4",
-    "next-auth": "^4.24.3",
+    "next": "^14.0.0",
+    "next-auth": "^4.24.4",
     "pino-pretty": "^10.0.0",
-    "react": "^18",
+    "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
-    "react-dom": "^18"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "13.5.4",
-    "prisma": "^5.4.2"
+    "eslint-config-next": "^14.0.0",
+    "prisma": "^5.5.2"
   }
 }
