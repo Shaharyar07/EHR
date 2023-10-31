@@ -361,7 +361,7 @@ const page = () => {
                     </select>
                   </div>
                 </div>
-                
+                <div className='col-md-6'>
                   <div className='form-group local-forms'>
                     <label className='focus-label'>Duration of Signs and Symptomss</label>
                     <select
@@ -374,7 +374,23 @@ const page = () => {
                      
                     </select>
                   </div>
-                
+                  </div>
+                  <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>Symptoms of CNS Involvement </label>
+                    <select
+                      className='form-control select'
+                      name='Symptoms of CNS Involvement'
+                      >
+                      <option value=''>Select Option</option>
+                      <option value='Seizure'>Seizure</option>
+                      <option value='Imbalance'>Imbalance</option>
+                      <option value='Facial Muscle Weakness'>Facial Muscle Weakness</option>
+                      <option value='Blurred Vision'>Blurred Vision</option>
+                      <option value='Headache'>Headache</option>
+                    </select>
+                  </div>
+              </div>
               </div>
             </div>
           </div>
@@ -636,7 +652,7 @@ const page = () => {
               </div>
               <div className='col-md-6'>
                   <div className='form-group local-forms'>
-                    <label className='focus-label'>HIV In Patients</label>
+                    <label className='focus-label'>HIV In Parent</label>
                     <select
                       className='form-control select'
                       name='character'
@@ -832,7 +848,7 @@ const page = () => {
         </div>
       </div>
 
-      <div className='card-box p-4'>
+      {/* <div className='card-box p-4'>
         <h3 className='card-title mb-3'>Transfusion and Transplant History</h3>
         <div className='row'>
           <div className='col-md-12'>
@@ -862,7 +878,7 @@ const page = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
      
 {/* LAB Test */}
