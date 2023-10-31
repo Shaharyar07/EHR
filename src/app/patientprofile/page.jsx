@@ -43,6 +43,12 @@ const Profile = () => {
                     </div>
                     <div className='col-md-7'>
                       <ul className='personal-info'>
+                      <li>
+                          <span className='title'>Blood Group</span>
+                          <span className='text'>
+                             B+
+                          </span>
+                        </li>
                         <li>
                           <span className='title'>Phone:</span>
                           <span className='text'>
