@@ -55,6 +55,17 @@ const CreateProfileForm = () => {
                       />
                   </div>
                 </div>
+
+                <div className='col-md-6'>
+                  <div className='form-group local-forms '>
+                    <label className='focus-label'>Blood Group</label>
+                    <input
+                      type='String'
+                      className='form-control floating'
+                      name='Blood group'
+                      />
+                  </div>
+                </div>
                 <div className='col-md-6'>
                   <div className='form-group local-forms'>
                     <label className='focus-label'>Martial Status</label>
