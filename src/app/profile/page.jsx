@@ -1,6 +1,6 @@
-
-import Link from "next/link";
-import CreateProfileForm from "@app/components/forms/CreateProfileForm";
+import { Suspense } from 'react';
+import Link from 'next/link';
+import CreateProfileForm from '@app/components/forms/CreateProfileForm';
 
 const Page = () => {
   return (
@@ -22,7 +22,9 @@ const Page = () => {
             </ul>
           </div>
         </div>
-        <CreateProfileForm />
+        <Suspense fallback={<div>Loading...</div>}>
+          <CreateProfileForm />
+        </Suspense>
       </div>
     </>
   );

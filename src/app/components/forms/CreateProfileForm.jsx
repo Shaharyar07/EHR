@@ -174,7 +174,7 @@ const CreateProfileForm = () => {
               className='btn btn-primary btn-rounded center myButton' 
             
             >
-                {isLoading ? "Creating..." : "Create Profile"}
+                Create Profile
             </button>
           </div>
          
