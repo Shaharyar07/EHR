@@ -141,7 +141,7 @@ model SymptomHistory {
   constitutionalSymptoms    String[]
   anemiaSymptoms            String[]
   neutropeniaSymptoms       String[]
-  bleedingDiathesisSymptoms String[]
+  ThrmbocytopeniaSymptoms String[]
   lumphomaSymptoms          String[]
   hyperviscositySymptoms    String[]
   thromboembolismSymptoms   String[]
@@ -196,6 +196,7 @@ model PhysicalExamination {
   lymphadenopathy     Boolean
   visceralExamination String[]
   skin                String
+  MediastinalMasses  Boolean
 }
 
 model transfusionTransplantHistory {

@@ -308,14 +308,16 @@ const page = () => {
               </div>
               <div className='col-md-6'>
                   <div className='form-group local-forms'>
-                    <label className='focus-label'> Symptoms of Bleeding Diathesis</label>
+                    <label className='focus-label'> Symptoms of Thrombocytopenia</label>
                     <select
                       className='form-control select'
-                      name='character'
+                      name='Symptoms of Thrombocytopenia'
                       >
                       <option value=''>Select Option</option>
-                      <option value='Yes'>Yes</option>
-                      <option value='No'>No</option>
+                      <option value='Bleeding Diathesis'>Bleeding Diathesis</option>
+                      <option value='Epitaxis'>Epitaxis</option>
+                      <option value='Petechiae'>Petechiae</option>
+                      <option value='Ecchymoisis'>Ecchymoisis</option>
                     </select>
                   </div>
                 </div>
@@ -839,6 +841,19 @@ const page = () => {
                       <option value='easy brusing'>easy bruising</option>
                     </select>
                   </div>
+              </div>
+              <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>Mediastinal Masses</label>
+                    <select
+                      className='form-control select'
+                      name='character'
+                      >
+                      <option value=''>Select Option</option>
+                      <option value='Yes'>Yes</option>
+                      <option value='No'>No</option>
+                    </select>
+                  </div>
               </div> 
 
              
@@ -882,9 +897,17 @@ const page = () => {
 
      
 {/* LAB Test */}
-
-<div className='card-box p-4'>
-        <h3 className='card-title mb-3'>CBC</h3>
+<div className='row'>
+            <div className="col-12 col-md-6 col-xl-6">
+                <div className="form-group select-gender">
+                <h3 className='card-title mb-3'> Lab test </h3>
+                 {/* <label className="card-title mb-3 ">Lab Test
+                <span className="login-danger">*</span>
+                    </label> */}
+                    <div className='card-box p-4'>
+        <label className="card-title mb-3 ">CBC(if values available)
+                <span className="login-danger">*</span>
+                    </label>
         <div className='row'>
           <div className='col-md-12'>
            <div className='profile-basic2'>
@@ -927,12 +950,15 @@ const page = () => {
           
              
             </div>
-<div className='row'>
-            <div className="col-12 col-md-6 col-xl-6">
-                <div className="form-group select-gender">
-                 <label className="gen-label">Lab Test
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <label className="card-title mb-3 ">Order Lab Test
                 <span className="login-danger">*</span>
                     </label>
+                    <br></br>
                    <div className="form-check-inline">
                     <label className="form-check-label">
                    <input type="radio" name="Lab" className="form-check-input" />
@@ -1025,10 +1051,7 @@ const page = () => {
                 </div>
             </div>
             </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
           <div className='col-md-12'>
             <button
               type='submit'
