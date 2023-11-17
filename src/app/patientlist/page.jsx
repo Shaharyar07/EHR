@@ -103,9 +103,7 @@ function page() {
                         </td>
                         <td className='profile-image'>
                           <Link
-                            href={{
-                            
-                              }}
+                            href='/patientprofile'
                             
                           >
                             <Image

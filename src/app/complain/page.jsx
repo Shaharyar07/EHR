@@ -720,7 +720,18 @@ const page = () => {
                     </select>
                   </div>
               </div>
-              <div className='col-md-6'>
+                     
+             
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Physical Examination */}
+      <div className='card-box p-4'>
+        <h3 className='card-title mb-3'>Medication History </h3>
+        <div className='row'>
+                    <div className='col-md-6'>
                   <div className='form-group local-forms'>
                     <label className='focus-label'>Medication History </label>
                     <select
@@ -753,16 +764,9 @@ const page = () => {
                        
                     </select>
                   </div>
-              </div>         
-             
-            </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Physical Examination */}
-
-                   
+              </div> 
+              </div>
+              </div>
       <div className='card-box p-4'>
         <h3 className='card-title mb-3'>Physical Examination </h3>
         <div className='row'>
