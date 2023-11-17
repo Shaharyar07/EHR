@@ -184,9 +184,12 @@ model TransfusionAndTransplantHistory {
   transfusionInPast   String[]
   transfusionReaction String[]
   transplantInPast    String[]
-  medicalHistory      String[]
+  // medicalHistory      String[]
 }
 
+// model medicationHistory{
+//   medicationHistory String[]
+// }
 model PhysicalExamination {
   id                  String   @id @default(auto()) @map("_id") @db.ObjectId
   patientId           String   @unique @db.ObjectId
