@@ -1,12 +1,8 @@
-"use client";
-import Link from "next/link";
-import CreateProfileForm from "@app/components/forms/CreateProfileForm";
-import { useSession } from "next-auth/react";
-import { Suspense } from "react";
+import { Suspense } from 'react';
+import Link from 'next/link';
+import CreateProfileForm from '@app/components/forms/CreateProfileForm';
 
 const Page = () => {
-  const session = useSession();
-  console.log(session);
   return (
     <>
       <div className='content'>
