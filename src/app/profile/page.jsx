@@ -2,6 +2,7 @@
 import Link from "next/link";
 import CreateProfileForm from "@app/components/forms/CreateProfileForm";
 import { useSession } from "next-auth/react";
+import { Suspense } from "react";
 
 const Page = () => {
   const session = useSession();
@@ -25,7 +26,9 @@ const Page = () => {
             </ul>
           </div>
         </div>
-        <CreateProfileForm />
+        <Suspense fallback={<div>Loading...</div>}>
+          <CreateProfileForm />
+        </Suspense>
       </div>
     </>
   );

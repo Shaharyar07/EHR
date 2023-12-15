@@ -141,7 +141,7 @@ model SymptomHistory {
   constitutionalSymptoms    String[]
   anemiaSymptoms            String[]
   neutropeniaSymptoms       String[]
-  bleedingDiathesisSymptoms String[]
+  ThrmbocytopeniaSymptoms String[]
   lumphomaSymptoms          String[]
   hyperviscositySymptoms    String[]
   thromboembolismSymptoms   String[]
@@ -184,9 +184,12 @@ model TransfusionAndTransplantHistory {
   transfusionInPast   String[]
   transfusionReaction String[]
   transplantInPast    String[]
-  medicalHistory      String[]
+  // medicalHistory      String[]
 }
 
+// model medicationHistory{
+//   medicationHistory String[]
+// }
 model PhysicalExamination {
   id                  String   @id @default(auto()) @map("_id") @db.ObjectId
   patientId           String   @unique @db.ObjectId
@@ -196,6 +199,7 @@ model PhysicalExamination {
   lymphadenopathy     Boolean
   visceralExamination String[]
   skin                String
+  MediastinalMasses  Boolean
 }
 
 model transfusionTransplantHistory {

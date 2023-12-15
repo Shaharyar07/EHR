@@ -1,11 +1,40 @@
 "use client";
 import Image from "next/image";
 import profileImage from "@app/assets/img/user.jpg";
-
-
+// import { DateTime } from "luxon";
+import { useState } from "react";
+// import toast from "react-hot-toast";
 const CreateProfileForm = () => {
+
+  // const router = useRouter();
+  // const [createUserProfile, { isLoading, isError }] = useCreateUserProfileMutation();
+  const [profile, setProfile] = useState({
+    name: "",
+    gender: "",
+    age: "",
+    bloodGroup: "",
+    maritalStatus: "",
+    occupation: "",
+    race: "",
+    phoneNumber: "",
+    email: ""
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setProfile((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    
+  };
+
+
     return (
-    <form >
+    <form onSubmit={handleSubmit}>
       <div className='card-box p-4'>
         <h3 className='card-title mb-3'>Demographics</h3>
         <div className='row'>
@@ -26,7 +55,9 @@ const CreateProfileForm = () => {
                     <input
                       type='text'
                       className='form-control floating'
-                      name='phone'
+                      name='name'
+                      value={profile.name}
+                      onChange={handleInputChange}
                      />
                   </div>
                 </div>
@@ -35,7 +66,9 @@ const CreateProfileForm = () => {
                     <label className='focus-label'>Gender</label>
                     <select
                       className='form-control select'
-                      name='gender'
+                                            name='gender'
+                      value={profile.gender}
+                      onChange={handleInputChange}
                       >
                       <option value=''>Select Gender</option>
                       <option value='Male'>Male</option>
@@ -52,6 +85,8 @@ const CreateProfileForm = () => {
                       type='number'
                       className='form-control floating'
                       name='age'
+                      value={profile.age}
+                      onChange={handleInputChange}
                       />
                   </div>
                 </div>
@@ -63,6 +98,8 @@ const CreateProfileForm = () => {
                       type='String'
                       className='form-control floating'
                       name='Blood group'
+                      value={profile.bloodGroup}
+                      onChange={handleInputChange}
                       />
                   </div>
                 </div>
@@ -72,6 +109,8 @@ const CreateProfileForm = () => {
                     <select
                       className='form-control select'
                       name='martial status'
+                      value={profile.maritalStatus}
+                      onChange={handleInputChange}
                       >
                       <option value=''>Select Status</option>
                       <option value='Single'>Single</option>
@@ -87,6 +126,8 @@ const CreateProfileForm = () => {
                type='text'
                className='form-control floating'
                name='occupation'
+               value={profile.occupation}
+                onChange={handleInputChange}
               />
             </div>
            </div>
@@ -98,6 +139,8 @@ const CreateProfileForm = () => {
                type='text'
                className='form-control floating'
                name='race'
+               value={profile.race}
+                onChange={handleInputChange}
               />
             </div>
            </div>
@@ -108,6 +151,8 @@ const CreateProfileForm = () => {
                type='text'
                className='form-control floating'
                name='phone number'
+                value={profile.phoneNumber}
+                  onChange={handleInputChange}
               />
             </div>
            </div>
@@ -118,6 +163,8 @@ const CreateProfileForm = () => {
                       type='email'
                       className='form-control floating'
                       name='email'
+                      value={profile.email}
+                      onChange={handleInputChange}
                     />
                   </div>
                 </div>
@@ -125,8 +172,9 @@ const CreateProfileForm = () => {
             <button
               type='submit'
               className='btn btn-primary btn-rounded center myButton' 
+            
             >
-              Submit
+                Create Profile
             </button>
           </div>
          
