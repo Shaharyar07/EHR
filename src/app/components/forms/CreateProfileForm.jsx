@@ -5,7 +5,6 @@ import profileImage from "@app/assets/img/user.jpg";
 import { useState } from "react";
 // import toast from "react-hot-toast";
 const CreateProfileForm = () => {
-
   // const router = useRouter();
   // const [createUserProfile, { isLoading, isError }] = useCreateUserProfileMutation();
   const [profile, setProfile] = useState({
@@ -17,7 +16,7 @@ const CreateProfileForm = () => {
     occupation: "",
     race: "",
     phoneNumber: "",
-    email: ""
+    email: "",
   });
 
   const handleInputChange = (event) => {
@@ -28,12 +27,9 @@ const CreateProfileForm = () => {
     }));
   };
 
-  const handleSubmit = async (event) => {
-    
-  };
+  const handleSubmit = async (event) => {};
 
-
-    return (
+  return (
     <form onSubmit={handleSubmit}>
       <div className='card-box p-4'>
         <h3 className='card-title mb-3'>Demographics</h3>
@@ -48,8 +44,7 @@ const CreateProfileForm = () => {
             </div>
             <div className='profile-basic'>
               <div className='row'>
-
-              <div className='col-md-6'>
+                <div className='col-md-6'>
                   <div className='form-group local-forms'>
                     <label className='focus-label'>Name</label>
                     <input
@@ -58,7 +53,7 @@ const CreateProfileForm = () => {
                       name='name'
                       value={profile.name}
                       onChange={handleInputChange}
-                     />
+                    />
                   </div>
                 </div>
                 <div className='col-md-6'>
@@ -66,18 +61,17 @@ const CreateProfileForm = () => {
                     <label className='focus-label'>Gender</label>
                     <select
                       className='form-control select'
-                                            name='gender'
+                      name='gender'
                       value={profile.gender}
                       onChange={handleInputChange}
-                      >
+                    >
                       <option value=''>Select Gender</option>
                       <option value='Male'>Male</option>
                       <option value='Female'>Female</option>
                     </select>
                   </div>
                 </div>
-              
-              
+
                 <div className='col-md-6'>
                   <div className='form-group local-forms '>
                     <label className='focus-label'>Age</label>
@@ -87,7 +81,7 @@ const CreateProfileForm = () => {
                       name='age'
                       value={profile.age}
                       onChange={handleInputChange}
-                      />
+                    />
                   </div>
                 </div>
 
@@ -100,7 +94,7 @@ const CreateProfileForm = () => {
                       name='Blood group'
                       value={profile.bloodGroup}
                       onChange={handleInputChange}
-                      />
+                    />
                   </div>
                 </div>
                 <div className='col-md-6'>
@@ -111,52 +105,51 @@ const CreateProfileForm = () => {
                       name='martial status'
                       value={profile.maritalStatus}
                       onChange={handleInputChange}
-                      >
+                    >
                       <option value=''>Select Status</option>
                       <option value='Single'>Single</option>
                       <option value='Married'>Married</option>
-
                     </select>
                   </div>
                 </div>
-         <div className='col-md-6'>
-            <div className='form-group local-forms'>
-            <label className='focus-label'>Occupation</label>
-            <input
-               type='text'
-               className='form-control floating'
-               name='occupation'
-               value={profile.occupation}
-                onChange={handleInputChange}
-              />
-            </div>
-           </div>
+                <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>Occupation</label>
+                    <input
+                      type='text'
+                      className='form-control floating'
+                      name='occupation'
+                      value={profile.occupation}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                </div>
 
-           <div className='col-md-6'>
-            <div className='form-group local-forms'>
-            <label className='focus-label'>Race/Ethnicity</label>
-            <input
-               type='text'
-               className='form-control floating'
-               name='race'
-               value={profile.race}
-                onChange={handleInputChange}
-              />
-            </div>
-           </div>
-           <div className='col-md-6'>
-            <div className='form-group local-forms'>
-            <label className='focus-label'>Phone Number</label>
-            <input
-               type='text'
-               className='form-control floating'
-               name='phone number'
-                value={profile.phoneNumber}
-                  onChange={handleInputChange}
-              />
-            </div>
-           </div>
-           <div className='col-md-6'>
+                <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>Race/Ethnicity</label>
+                    <input
+                      type='text'
+                      className='form-control floating'
+                      name='race'
+                      value={profile.race}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                </div>
+                <div className='col-md-6'>
+                  <div className='form-group local-forms'>
+                    <label className='focus-label'>Phone Number</label>
+                    <input
+                      type='text'
+                      className='form-control floating'
+                      name='phone number'
+                      value={profile.phoneNumber}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                </div>
+                <div className='col-md-6'>
                   <div className='form-group local-forms'>
                     <label className='focus-label'>email</label>
                     <input
@@ -168,24 +161,19 @@ const CreateProfileForm = () => {
                     />
                   </div>
                 </div>
-           <div className='col-md-12'>
-            <button
-              type='submit'
-              className='btn btn-primary btn-rounded center myButton' 
-            
-            >
-                Create Profile
-            </button>
-          </div>
-         
+                <div className='col-md-12'>
+                  <button
+                    type='submit'
+                    className='btn btn-primary btn-rounded mt-4 float-right'
+                  >
+                    Create Profile
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-       
         </div>
-        
       </div>
-     
     </form>
   );
 };

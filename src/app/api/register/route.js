@@ -2,6 +2,14 @@ import bcrypt from "bcrypt";
 import prisma from "@app/utils/prismadb";
 
 export async function POST(request) {
+  if (process.env.NODE_ENV !== "development") {
+    return new Response(
+      JSON.stringify({
+        message: "This route is not accessible in production",
+        status: 403,
+      })
+    );
+  }
   try {
     const body = await request.json();
     const { name, email, password } = body;

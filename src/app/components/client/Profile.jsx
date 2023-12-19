@@ -1,14 +1,12 @@
+"use client";
 import React from "react";
 import Link from "next/link";
-import ProfileImage from "@app/assets/img/user-06.jpg"
+import ProfileImage from "@app/assets/img/user-06.jpg";
 import Image from "next/image";
-// import user from "@app/assets/img/user.jpg";
-// import { useRouter } from "next/navigation";
-// import { toast } from "react-hot-toast";
-// import { useDispatch } from "react-redux";
-// import { setPatient } from "@app/redux/features/PatientSlice";
+import { useSession } from "next-auth/react";
 const Profile = () => {
-   return (
+  const { data: session } = useSession();
+  return (
     <li className='nav-item  user-profile-list'>
       <Link
         href='/profile'
@@ -16,8 +14,8 @@ const Profile = () => {
         data-bs-toggle='dropdown'
       >
         <div className='user-names'>
-          <h5>Name</h5>
-          <span>Admin</span>
+          <h5>{session?.user?.name}</h5>
+          <span>{session?.user?.role}</span>
         </div>
 
         <Image
@@ -29,8 +27,6 @@ const Profile = () => {
         />
       </Link>
     </li>
-
-
   );
 };
 

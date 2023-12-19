@@ -108,7 +108,7 @@ a:hover {
   min-height: 45px;
   border: 2px solid rgba(46, 55, 164, 0.1);
   border-radius: 10px; */
-  font-size:20px;
+  font-size: 20px;
   font-weight: 200;
   line-height: 1.5;
   color: var(--bs-body-color);
@@ -347,7 +347,7 @@ table.table td h2 span {
 }
 .time-icon:after {
   /* background: url(./assets/img/clock.png) no-repeat; */
-  background:  no-repeat;
+  background: no-repeat;
   display: block;
   height: 19px;
   position: absolute;
@@ -620,7 +620,7 @@ table.table td h2 span {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .card {
-  margin-top:2%;
+  margin-top: 2%;
   margin-bottom: 25px;
   border: 0;
   border-radius: 12px;
@@ -741,6 +741,7 @@ a.fc-event:not([href]) {
   top: 0;
   z-index: 1039;
   height: 70px;
+
   background: #fff;
   box-shadow: 0 0 14px rgba(204, 204, 204, 0.25);
 }
@@ -767,7 +768,7 @@ a.fc-event:not([href]) {
 .header .header-left {
   float: left;
   height: 70px;
-  padding: 0 20px;
+  padding: 0 60px;
   position: relative;
   text-align: center;
   width: 220px;
@@ -1044,7 +1045,6 @@ a.fc-event:not([href]) {
   line-height: 40px;
 }
 
-
 .page-wrapper {
   left: 0;
   margin-left: 100px;
@@ -1053,7 +1053,7 @@ a.fc-event:not([href]) {
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
   transition: 0.4s;
-  margin-right:100px;
+  margin-right: 100px;
 }
 .page-wrapper > .content {
   padding: 30px 30px 0;
@@ -1618,7 +1618,6 @@ ul.chat-user-total li i.old-users {
   height: 45px;
   border-radius: 50px;
 }
-
 
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting:before,
@@ -2265,7 +2264,6 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 .profile-info-left {
   border-right: 2px dashed #ccc;
-  
 }
 .profile-info-left h3 {
   font-size: 20px;
@@ -3144,7 +3142,7 @@ a.status-grey {
 .local-forms label,
 .local-top-form .local-top {
   font-size: 13px;
-  color: #616271a1;;
+  color: #616271a1;
   font-weight: 501;
   position: absolute;
   top: -10px;
@@ -3153,7 +3151,6 @@ a.status-grey {
   margin-bottom: 0;
   padding: 0 5px;
   z-index: 99;
-
 }
 .local-forms
   .select2-container--default
@@ -3657,7 +3654,6 @@ form .btn-secondary {
   transform: translate(calc(-100% - 5px), -50%);
 }
 
-
 @media only screen and (min-width: 768px) {
   .modal-md {
     width: 500px;
@@ -4127,7 +4123,7 @@ form .btn-secondary {
   .chat-user-total {
     margin: 10px 0;
   }
-  
+
   .doctor-date-list li,
   .steps-history li {
     font-size: 12px;
@@ -4152,7 +4148,7 @@ form .btn-secondary {
   .tab-content-set li a {
     font-size: 16px;
   }
- 
+
   .inputgroups input[type="text"] {
     padding-right: 125px;
   }
@@ -4169,8 +4165,6 @@ form .btn-secondary {
   }
 }
 @media only screen and (max-width: 575.98px) {
- 
-  
   .nav-tabs.menu-tabs .nav-link,
   ul.nav.nav-tabs.menu-tabs {
     padding: 10px;
@@ -4270,31 +4264,30 @@ form .btn-secondary {
   }
 }
 
-.profile-basic .myfield{
+.profile-basic .myfield {
   font-size: 18px;
   margin-bottom: 1.5rem;
-
 }
 
 .profile-basic2 {
   margin-left: 7px;
 }
-.myfield{
+.myfield {
   font-size: 18px;
   margin-bottom: 1.5rem;
   /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 }
-.form-control select{
-  color:#212529ab
+.form-control select {
+  color: #212529ab;
 }
 
-.myButton{
+.myButton {
   margin-left: 750px;
 }
-.myButton2{
+.myButton2 {
   margin-left: 750px;
-  width:200px;
+  width: 200px;
 }
-.myVitalButton{
+.myVitalButton {
   margin-left: 901px;
 }
