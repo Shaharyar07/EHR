@@ -1,16 +1,16 @@
 "use client";
 import Image from "next/image";
 import profileImage from "@app/assets/img/user.jpg";
-// import { DateTime } from "luxon";
 import { useState } from "react";
-// import toast from "react-hot-toast";
+import { useFormStatus } from "react-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 const CreateProfileForm = () => {
-  // const router = useRouter();
-  // const [createUserProfile, { isLoading, isError }] = useCreateUserProfileMutation();
+  const { pending } = useFormStatus();
   const [profile, setProfile] = useState({
     name: "",
     gender: "",
-    age: "",
+    age: 0,
     bloodGroup: "",
     maritalStatus: "",
     occupation: "",
@@ -27,7 +27,19 @@ const CreateProfileForm = () => {
     }));
   };
 
-  const handleSubmit = async (event) => {};
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(profile);
+    try {
+      const response = await axios.post("/api/demographics", profile);
+      console.log(response.data);
+      if(data.status === 200){
+        toast.success("Profile created successfully");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -53,6 +65,7 @@ const CreateProfileForm = () => {
                       name='name'
                       value={profile.name}
                       onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
@@ -64,6 +77,7 @@ const CreateProfileForm = () => {
                       name='gender'
                       value={profile.gender}
                       onChange={handleInputChange}
+                      required
                     >
                       <option value=''>Select Gender</option>
                       <option value='Male'>Male</option>
@@ -81,6 +95,7 @@ const CreateProfileForm = () => {
                       name='age'
                       value={profile.age}
                       onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
@@ -89,11 +104,12 @@ const CreateProfileForm = () => {
                   <div className='form-group local-forms '>
                     <label className='focus-label'>Blood Group</label>
                     <input
-                      type='String'
+                      type='text'
                       className='form-control floating'
-                      name='Blood group'
+                      name='bloodGroup'
                       value={profile.bloodGroup}
                       onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
@@ -102,9 +118,10 @@ const CreateProfileForm = () => {
                     <label className='focus-label'>Martial Status</label>
                     <select
                       className='form-control select'
-                      name='martial status'
+                      name='maritalStatus'
                       value={profile.maritalStatus}
                       onChange={handleInputChange}
+                      required
                     >
                       <option value=''>Select Status</option>
                       <option value='Single'>Single</option>
@@ -121,6 +138,7 @@ const CreateProfileForm = () => {
                       name='occupation'
                       value={profile.occupation}
                       onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
@@ -134,6 +152,7 @@ const CreateProfileForm = () => {
                       name='race'
                       value={profile.race}
                       onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
@@ -141,11 +160,12 @@ const CreateProfileForm = () => {
                   <div className='form-group local-forms'>
                     <label className='focus-label'>Phone Number</label>
                     <input
-                      type='text'
+                      type='tel'
                       className='form-control floating'
-                      name='phone number'
+                      name='phoneNumber'
                       value={profile.phoneNumber}
                       onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
@@ -158,6 +178,7 @@ const CreateProfileForm = () => {
                       name='email'
                       value={profile.email}
                       onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
@@ -165,6 +186,7 @@ const CreateProfileForm = () => {
                   <button
                     type='submit'
                     className='btn btn-primary btn-rounded mt-4 float-right'
+                    disabled={pending}
                   >
                     Create Profile
                   </button>

@@ -71,13 +71,15 @@ model Patient {
   id                              String                           @id @default(auto()) @map("_id") @db.ObjectId
   name                            String
   gender                          String
-  image                           String
+  email                           String
+  image                          String?
   age                             Int
-  birthDate                       DateTime
+  phoneNumber                           String
+  bloodGroup                      String
   maritalStatus                   String
   occupation                      String
   race                            String
-  cancer                          Boolean
+  cancer                          Boolean?
   vitals                          Vitals?
   complain                        Complains?
   familyHistory                   familyHistory?
