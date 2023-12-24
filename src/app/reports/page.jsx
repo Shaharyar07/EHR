@@ -8,9 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Link from "next/link";
 import FeatherIcon from "feather-icons-react";
 
-
 const Page = () => {
-  
   return (
     <>
       <div className='content'>
@@ -36,14 +34,6 @@ const Page = () => {
                               </a>
                             </form>
                           </div>
-                          {/* <div className='add-group'>
-                            <a
-                              href='#'
-                              className='btn btn-primary doctor-refresh ms-2 d-none d-sm-block'
-                            >
-                              <Image src={refresh} alt='' />
-                            </a>
-                          </div> */}
                         </div>
                       </div>
                     </div>
@@ -88,42 +78,37 @@ const Page = () => {
                     </tr>
                   </thead>
                   <tbody>
-                 <tr >
-                   <td>
-                   <div className='form-check check-tables '>
-                    <input
-                  className='form-check-input '
-                    type='checkbox'
-                   defaultValue='something'
-                       />
-                    </div>
-                     </td>
-                     <td> Nimra</td>
-                     <td className='profile-image'>
-                              <Link href='#'>
-                                <Image src={pdf} alt='' />
-                              </Link>
-                            </td>
-                            <td> 12/08/2023</td>
-                            <td>
-                             12:00pm
-                            </td>
-                            <td>
-                              <div className='dropdown center'>
-                                {/* <a
+                    <tr>
+                      <td>
+                        <div className='form-check check-tables '>
+                          <input
+                            className='form-check-input '
+                            type='checkbox'
+                            defaultValue='something'
+                          />
+                        </div>
+                      </td>
+                      <td> Nimra</td>
+                      <td className='profile-image'>
+                        <Link href='#'>
+                          <Image src={pdf} alt='' />
+                        </Link>
+                      </td>
+                      <td> 12/08/2023</td>
+                      <td>12:00pm</td>
+                      <td>
+                        <div className='dropdown center'>
+                          {/* <a
                                   className='custom-badge status-green'
                                   aria-expanded='false'
                                   href={}
                                   target='_blank'
                                 > */}
-                                  Download
-                                {/* </a> */}
-                              </div>
-                            </td>
-                          </tr>
-                     
-                  
-                  
+                          Download
+                          {/* </a> */}
+                        </div>
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>

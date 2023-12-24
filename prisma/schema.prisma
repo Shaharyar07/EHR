@@ -127,11 +127,10 @@ model ComplainHistory {
   painSite           String
   radiatingPain      Boolean
   timing             String
-  alleriatingFactors String
+  alleviatingFactors String
   symptoms           String
   swellingSite       String
   severitySymptom    Int
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -171,7 +170,7 @@ model Comorbidities {
   chemicalExposure String
   chemoTherapy     String
   toxicExposure    String
-  dadiations       Boolean
+  radiations       Boolean
   alcohol          Boolean
   smoking          Boolean
   historyOfCancer  String
@@ -186,12 +185,8 @@ model TransfusionAndTransplantHistory {
   transfusionInPast   String[]
   transfusionReaction String[]
   transplantInPast    String[]
-  // medicalHistory      String[]
+  medicalHistory      String[]
 }
-
-// model medicationHistory{
-//   medicationHistory String[]
-// }
 model PhysicalExamination {
   id                  String   @id @default(auto()) @map("_id") @db.ObjectId
   patientId           String   @unique @db.ObjectId

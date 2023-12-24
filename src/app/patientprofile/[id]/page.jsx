@@ -1,22 +1,33 @@
-"use client";
-import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import profileImage from "@app/assets/img/user.jpg";
-import FeatherIcon from "feather-icons-react";
-import { useSearchParams } from "next/navigation";
-import AddedVitals from "@app/components/vitals/AddedVitals";
-const Profile = () => {
- 
 
+import AddedVitals from "@app/components/vitals/AddedVitals";
+
+import prisma from "@app/utils/prismadb";
+
+const getPatientProfile = async (id) => {
+  const patient = await prisma.patient.findUnique({
+    where: {
+      id,
+    },
+    include: {
+      vitals: true,
+    },
+  });
+  return patient || {};
+};
+export default async function Page({ params }) {
+  const { id } = params;
+  const patient = await getPatientProfile(id);
+  // console.log("Profile:", patient);
   return (
     <>
       <div className='content'>
-    
         <div className='card-box profile-header'>
           <div className='row'>
             <div className='col-md-12'>
-            <h6>Demographics</h6>
+              <h6>Demographics</h6>
               <div className='profile-view'>
                 <div className='profile-img-wrap'>
                   <div className='profile-img'>
@@ -34,61 +45,47 @@ const Profile = () => {
                   <div className='row'>
                     <div className='col-md-5'>
                       <div className='profile-info-left'>
-                        <h3 className='user-name m-t-0 mb-0'>Nimra</h3>
-                        <small className='text-muted'>
-                          Age:22
-                        </small>
-                        <div className='staff-id'>MR :12345678</div>
+                        <h3 className='user-name m-t-0 mb-0'>
+                          {patient?.name}
+                        </h3>
+                        <small className='text-muted'>Age:{patient?.age}</small>
+                        <div className='staff-id'>MR :{patient?.id}</div>
                       </div>
                     </div>
                     <div className='col-md-7'>
                       <ul className='personal-info'>
-                      <li>
+                        <li>
                           <span className='title'>Blood Group</span>
-                          <span className='text'>
-                             B+
-                          </span>
+                          <span className='text'>{patient?.bloodGroup}</span>
                         </li>
                         <li>
                           <span className='title'>Phone:</span>
                           <span className='text'>
-                            <a href='#'>+92 398751234</a>
+                            <a href='#'>{patient?.phoneNumber}</a>
                           </span>
                         </li>
                         <li>
                           <span className='title'>Email:</span>
                           <span className='text'>
-                            <a href='#'>ayesha123@gmail.com
-                             
-                            </a>
+                            <a href='#'>{patient?.email}</a>
                           </span>
                         </li>
                         <li>
                           <span className='title'>Gender:</span>
-                          <span className='text'>
-                           Female
-                          </span>
+                          <span className='text'>{patient?.gender}</span>
                         </li>
                         <li>
                           <span className='title'>Martial Status</span>
-                          <span className='text'>
-                           Single
-                          </span>
+                          <span className='text'>{patient?.maritalStatus}</span>
                         </li>
                         <li>
                           <span className='title'>Occupation</span>
-                          <span className='text'>
-                           N/A
-                          </span>
+                          <span className='text'>{patient?.occupation}</span>
                         </li>
                         <li>
                           <span className='title'>Race Ethnicity</span>
-                          <span className='text'>
-                           N/A
-                          </span>
+                          <span className='text'>{patient?.race}</span>
                         </li>
-                        
-                       
                       </ul>
                     </div>
                   </div>
@@ -101,14 +98,11 @@ const Profile = () => {
         <div className='profile-tabs'>
           <div className='tab-content'>
             <div className='tab-pane show active' id='about-cont'>
-             <AddedVitals/>
+              <AddedVitals vitals={patient?.vitals} />
             </div>
           </div>
         </div>
       </div>
-     
     </>
   );
-};
-
-export default Profile;
+}

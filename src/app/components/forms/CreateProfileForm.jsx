@@ -4,13 +4,13 @@ import profileImage from "@app/assets/img/user.jpg";
 import { useState } from "react";
 import { useFormStatus } from "react-dom";
 import axios from "axios";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 const CreateProfileForm = () => {
   const { pending } = useFormStatus();
   const [profile, setProfile] = useState({
     name: "",
     gender: "",
-    age: 0,
+    age: "",
     bloodGroup: "",
     maritalStatus: "",
     occupation: "",
@@ -33,8 +33,21 @@ const CreateProfileForm = () => {
     try {
       const response = await axios.post("/api/demographics", profile);
       console.log(response.data);
-      if(data.status === 200){
-        toast.success("Profile created successfully");
+      const data = response?.data?.data;
+      if (data.status === 200) {
+        alert("Profile created successfully");
+        // toast.success("Profile created successfully");
+        setProfile({
+          name: "",
+          gender: "",
+          age: "",
+          bloodGroup: "",
+          maritalStatus: "",
+          occupation: "",
+          race: "",
+          phoneNumber: "",
+          email: "",
+        });
       }
     } catch (error) {
       console.error(error);
