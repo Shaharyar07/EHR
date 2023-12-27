@@ -17,7 +17,8 @@ export async function middleware(request) {
       if (
         !request.nextUrl.pathname.startsWith("/patients") &&
         !request.nextUrl.pathname.startsWith("/patientprofile") &&
-        !request.nextUrl.pathname.startsWith("/complain")
+        !request.nextUrl.pathname.startsWith("/complain") &&
+        !request.nextUrl.pathname.startsWith("/report")
       ) {
         return NextResponse.redirect(new URL("/patients", request.url));
       }

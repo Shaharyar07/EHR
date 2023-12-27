@@ -13,6 +13,7 @@ const getPatientProfile = async (id) => {
     },
     include: {
       vitals: true,
+      complain: true,
     },
   });
   return patient || {};
@@ -98,7 +99,11 @@ export default async function Page({ params }) {
         <div className='profile-tabs'>
           <div className='tab-content'>
             <div className='tab-pane show active' id='about-cont'>
-              <AddedVitals vitals={patient?.vitals} />
+              <AddedVitals
+                vitals={patient?.vitals}
+                complain={patient.complain}
+                id={id}
+              />
             </div>
           </div>
         </div>

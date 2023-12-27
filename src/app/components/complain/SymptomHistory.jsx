@@ -115,6 +115,7 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     classNamePrefix='select'
                     onChange={handleSelectChange}
                     required
+                    
                   />
                 </div>
               </div>

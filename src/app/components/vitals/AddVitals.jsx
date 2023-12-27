@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const AddVitals = ({ patients }) => {
   const [formState, setFormState] = useState({
@@ -30,9 +31,9 @@ const AddVitals = ({ patients }) => {
       const data = response?.data?.data;
       console.log(data);
       if (data.status === 200) {
-        alert("Vitals created successfully");
+        toast.success("Vitals added successfully");
       } else {
-        alert(data.message || "Something went wrong");
+        toast.error(data.message);
       }
       setFormState({
         patientId: "",

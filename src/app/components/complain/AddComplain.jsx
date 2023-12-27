@@ -9,8 +9,12 @@ import MedicalHistory from "./MedicalHistory";
 import PhysicalExamination from "./PhysicalExamination";
 import ComplainHistory from "./ComplainHistory";
 import axios from "axios";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const AddComplain = ({ patient }) => {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState({
     patientId: patient.id,
     complaint: "",
@@ -82,7 +86,7 @@ const AddComplain = ({ patient }) => {
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    // console.log(name, value);
 
     // Handling nested state
     const nameParts = name.split(".");
@@ -104,10 +108,88 @@ const AddComplain = ({ patient }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formState);
+    setLoading(true);
 
     try {
       const response = await axios.post("/api/complain", formState);
-      console.log(response.data);
+      const data = response?.data?.data;
+      if (data.status === 200) {
+        toast.success("Complain created successfully");
+        setLoading(false);
+        router.push(`/patientprofile/${patient.id}`);
+      } else {
+        toast.error(data.message);
+        setLoading(false);
+      }
+      setFormState({
+        patientId: patient.id,
+        complaint: "",
+        complainHistory: {
+          painCharacter: "",
+          painSite: "",
+          radiatingPain: "",
+          timing: "",
+          alleviatingFactors: "",
+          symptoms: "",
+          swellingSite: "",
+          severitySymptom: "",
+        },
+        symptomHistory: {
+          constitutionalSymptoms: [],
+          anemiaSymptoms: [],
+          neutropeniaSymptoms: [],
+          thromboembolismSymptoms: [],
+          lumphomaSymptoms: [],
+          hyperviscositySymptoms: [],
+          durationSymptom: "",
+        },
+        familyHistory: {
+          hematologicMalignancy: [],
+        },
+        comorbidities: {
+          syndromes: [],
+          hepatitis: [],
+          diabetes: "",
+          surgeryInPast: [],
+          tb: "",
+          chemicalExposure: "",
+          chemoTherapy: "",
+          toxicExposure: "",
+          radiations: "",
+          alcohol: "",
+          smoking: "",
+          historyOfCancer: "",
+          anemia: [],
+          plateletDisorder: [],
+          viralInfection: [],
+          HIV: "",
+        },
+        physicalExamination: {
+          eyes: [],
+          mouthUlcer: [],
+          lymphadenopathy: "",
+          visceralExamination: [],
+          skin: [],
+          mediationalMasses: "",
+        },
+        transfusionHistory: {
+          transfusionInPast: "",
+          transfusionReaction: "",
+          transplant: "",
+          medicalHistory: [],
+        },
+        cbc: {
+          wbc: "",
+          rbc: "",
+          platelet: "",
+          neutrophils: "",
+          lymphocytes: "",
+        },
+        labTests: {
+          cbc: "",
+          bloodSmear: "",
+        },
+      });
     } catch (error) {
       console.log(error);
     }
@@ -211,8 +293,12 @@ const AddComplain = ({ patient }) => {
         />
 
         <div className='col-md-12'>
-          <button type='submit' className='btn btn-primary btn-rounded'>
-            Submit
+          <button
+            type='submit'
+            className='btn btn-primary btn-rounded'
+            disabled={loading}
+          >
+            {loading ? "Loading..." : "Submit"}
           </button>
         </div>
       </div>

@@ -18,6 +18,23 @@ export async function POST(request) {
     labTests,
   } = body;
   try {
+    //check if complain already exists
+    const complain = await prisma.complains.findUnique({
+      where: {
+        patientId,
+      },
+    });
+
+    if (complain) {
+      return new Response(
+        JSON.stringify({
+          data: {
+            status: 400,
+            message: "Complain already exists",
+          },
+        })
+      );
+    }
     const complainHistoryFormatted = {
       //convert to string from array
       ...complainHistory,
@@ -26,13 +43,13 @@ export async function POST(request) {
       alleviatingFactors: complainHistory?.alleviatingFactors[0],
       symptoms: complainHistory?.symptoms[0],
     };
-    console.log("Complain Formatted: ", complainHistoryFormatted);
+    // console.log("Complain Formatted: ", complainHistoryFormatted);
 
     const symptomHistoryFormatted = {
       ...symptomHistory,
       durationSymptom: symptomHistory.durationSymptom[0],
     };
-    console.log("Symptom Formatted: ", symptomHistoryFormatted);
+    // console.log("Symptom Formatted: ", symptomHistoryFormatted);
 
     const comorbiditiesFormatted = {
       ...comorbidities,
@@ -45,16 +62,16 @@ export async function POST(request) {
       HIV: comorbidities.HIV[0],
     };
 
-    console.log("Comorbidities Formatted: ", comorbiditiesFormatted);
+    // console.log("Comorbidities Formatted: ", comorbiditiesFormatted);
     const physicalExaminationFormatted = {
       ...physicalExamination,
       lymphadenopathy: physicalExamination.lymphadenopathy[0],
       mediationalMasses: physicalExamination.mediationalMasses[0],
     };
-    console.log(
-      "Physical Examination Formatted: ",
-      physicalExaminationFormatted
-    );
+    // console.log(
+    //   "Physical Examination Formatted: ",
+    //   physicalExaminationFormatted
+    // );
 
     const transfusionHistoryFormatted = {
       ...transfusionHistory,
@@ -63,7 +80,7 @@ export async function POST(request) {
       transplant: transfusionHistory.transplant[0],
       medicalHistory: transfusionHistory.medicalHistory.medicalHistory,
     };
-    console.log("Transfusion History Formatted: ", transfusionHistoryFormatted);
+    // console.log("Transfusion History Formatted: ", transfusionHistoryFormatted);
     const [
       newComplaint,
       newComplainHistory,
