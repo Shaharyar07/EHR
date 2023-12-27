@@ -19,11 +19,16 @@ const FamilyHistory = ({ familyHistory, handleChange }) => {
     { value: "twin", label: "Any Identical twin with ALL Disorder" },
   ];
   const handleSelectChange = (selectedOptions, { name }) => {
+    // Ensure selectedOptions is an array
+    if (!Array.isArray(selectedOptions)) {
+      selectedOptions = [selectedOptions];
+    }
+
     // Extracting the last part of the name (after the last dot)
     const dropdownName = name.split(".").pop();
     // Creating a new object with the name of the dropdown and the selected options
     const newObject = {
-      [dropdownName]: selectedOptions,
+      [dropdownName]: selectedOptions.map((option) => option.value),
     };
     // Updating the state with the new object
     handleChange({
@@ -49,9 +54,8 @@ const FamilyHistory = ({ familyHistory, handleChange }) => {
                   <label className='focus-label'>Hematologic Malignancy</label>
                   <Select
                     className='form-control select'
-                    name='character'
+                    name='hematologicMalignancy'
                     options={hematologicMalignancyOptions}
-                    value={familyHistory.hematologicMalignancy}
                     isMulti
                     onChange={handleSelectChange}
                   />

@@ -8,6 +8,7 @@ import LabTest from "./LabTest";
 import MedicalHistory from "./MedicalHistory";
 import PhysicalExamination from "./PhysicalExamination";
 import ComplainHistory from "./ComplainHistory";
+import axios from "axios";
 
 const AddComplain = ({ patient }) => {
   const [formState, setFormState] = useState({
@@ -18,51 +19,53 @@ const AddComplain = ({ patient }) => {
       painSite: "",
       radiatingPain: "",
       timing: "",
-      alleriatingFactors: "",
+      alleviatingFactors: "",
       symptoms: "",
       swellingSite: "",
-      severitySymptoms: "",
+      severitySymptom: "",
     },
     symptomHistory: {
       constitutionalSymptoms: [],
       anemiaSymptoms: [],
-      neutronpeniaSymptoms: [],
-      thrombocytopeniaSymptoms: [],
+      neutropeniaSymptoms: [],
+      thromboembolismSymptoms: [],
       lumphomaSymptoms: [],
       hyperviscositySymptoms: [],
-      thrombocytopeniaSymptoms: [],
-      durationSymptoms: "",
+      durationSymptom: "",
     },
     familyHistory: {
-      hemotlogicalMaliqnanay: [],
+      hematologicMalignancy: [],
     },
     comorbidities: {
+      syndromes: [],
       hepatitis: [],
-      diabetes: [],
+      diabetes: "",
       surgeryInPast: [],
-      tb: false,
+      tb: "",
       chemicalExposure: "",
       chemoTherapy: "",
       toxicExposure: "",
-      dadiations: false,
-      alcohol: false,
-      smoking: false,
+      radiations: "",
+      alcohol: "",
+      smoking: "",
       historyOfCancer: "",
       anemia: [],
       plateletDisorder: [],
+      viralInfection: [],
+      HIV: "",
     },
     physicalExamination: {
       eyes: [],
       mouthUlcer: [],
       lymphadenopathy: "",
       visceralExamination: [],
-      skin: "",
-      MediastinalMasses: "",
+      skin: [],
+      mediationalMasses: "",
     },
     transfusionHistory: {
-      transfusionInPast: [],
-      transfusionReaction: [],
-      transplant: [],
+      transfusionInPast: "",
+      transfusionReaction: "",
+      transplant: "",
       medicalHistory: [],
     },
     cbc: {
@@ -74,11 +77,10 @@ const AddComplain = ({ patient }) => {
     },
     labTests: {
       cbc: "",
-      bloodsmear: "",
+      bloodSmear: "",
     },
   });
   const handleChange = (e) => {
-   
     const { name, value } = e.target;
     console.log(name, value);
 
@@ -99,9 +101,16 @@ const AddComplain = ({ patient }) => {
       }));
     }
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formState);
+
+    try {
+      const response = await axios.post("/api/complain", formState);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -153,22 +162,22 @@ const AddComplain = ({ patient }) => {
         </div>
 
         {/* Camplain History */}
-        {/* <ComplainHistory
+        <ComplainHistory
           complainHistory={formState.complainHistory}
           handleChange={handleChange}
-        /> */}
+        />
 
-        {/* Symptom History
+        {/* { Symptom History} */}
         <SymptomHistory
           symptomHistory={formState.symptomHistory}
           handleChange={handleChange}
         />
 
         {/* Family History */}
-        {/* <FamilyHistory
+        <FamilyHistory
           familyHistory={formState.familyHistory}
           handleChange={handleChange}
-        /> */} */
+        />
 
         {/* Comorbidities */}
         <Comorbidities
@@ -202,10 +211,7 @@ const AddComplain = ({ patient }) => {
         />
 
         <div className='col-md-12'>
-          <button
-            type='submit'
-            className='btn btn-primary btn-rounded center myButton'
-          >
+          <button type='submit' className='btn btn-primary btn-rounded'>
             Submit
           </button>
         </div>

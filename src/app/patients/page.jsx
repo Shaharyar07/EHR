@@ -4,6 +4,7 @@ import searchimage1 from "../assets/img/icons/search-normal.svg";
 import image from "../assets/img/user.jpg";
 import Link from "next/link";
 import FeatherIcon from "feather-icons-react";
+import prisma from "@app/utils/prismadb";
 const getPatients = async () => {
   const patients = await prisma.patient.findMany();
   return patients || [];

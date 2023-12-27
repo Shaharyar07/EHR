@@ -55,11 +55,16 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
   ];
 
   const handleSelectChange = (selectedOptions, { name }) => {
+    // Ensure selectedOptions is an array
+    if (!Array.isArray(selectedOptions)) {
+      selectedOptions = [selectedOptions];
+    }
+
     // Extracting the last part of the name (after the last dot)
     const dropdownName = name.split(".").pop();
     // Creating a new object with the name of the dropdown and the selected options
     const newObject = {
-      [dropdownName]: selectedOptions,
+      [dropdownName]: selectedOptions.map((option) => option.value),
     };
     // Updating the state with the new object
     handleChange({
@@ -85,7 +90,7 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                   <label className='focus-label'>Syndromes</label>
                   <Select
                     isMulti
-                    name='Syndromes'
+                    name='syndromes'
                     options={syndromesOptions}
                     className='basic-multi-select'
                     classNamePrefix='select'
@@ -159,7 +164,7 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>TB</label>
                   <Select
-                    name='TB'
+                    name='tb'
                     options={[
                       {
                         label: "Yes",
@@ -193,54 +198,101 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
 
               <div className='col-md-6'>
                 <div className='form-group local-forms'>
-                  <label className='focus-label'>Chemotheraphy</label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-                    <option value='Yes'>Yes</option>
-                    <option value='No'> No</option>
-                  </select>
+                  <label className='focus-label'>Chemotherapy</label>
+                  <Select
+                    name='chemoTherapy'
+                    options={[
+                      {
+                        label: "Yes",
+                        value: "Yes",
+                      },
+                      {
+                        label: "No",
+                        value: "No",
+                      },
+                    ]}
+                    className='basic-select'
+                    classNamePrefix='select'
+                    onChange={handleSelectChange}
+                  />
                 </div>
               </div>
               <div className='col-md-6 '>
                 <div className='form-group local-forms'>
                   <label>
-                    Toxins <span className='login-danger'>*</span>
+                    Toxic Exposure <span className='login-danger'>*</span>
                   </label>
-                  <input className='form-control' type='text' />
+                  <input
+                    className='form-control'
+                    type='text'
+                    name='comorbidities.toxicExposure'
+                    value={comorbidities.toxicExposure}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
 
               <div className='col-md-6'>
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Radiations</label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-
-                    <option value='Yes'>Yes</option>
-                    <option value='No'> No</option>
-                  </select>
+                  <Select
+                    name='radiations'
+                    options={[
+                      {
+                        label: "Yes",
+                        value: "Yes",
+                      },
+                      {
+                        label: "No",
+                        value: "No",
+                      },
+                    ]}
+                    className='basic-select'
+                    classNamePrefix='select'
+                    onChange={handleSelectChange}
+                  />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Alcohol</label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-
-                    <option value='Yes'>Yes</option>
-                    <option value='No'> No</option>
-                  </select>
+                  <Select
+                    name='alcohol'
+                    options={[
+                      {
+                        label: "Yes",
+                        value: "Yes",
+                      },
+                      {
+                        label: "No",
+                        value: "No",
+                      },
+                    ]}
+                    className='basic-select'
+                    classNamePrefix='select'
+                    onChange={handleSelectChange}
+                  />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Smoking</label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-
-                    <option value='Yes'>Yes</option>
-                    <option value='No'> No</option>
-                  </select>
+                  <Select
+                    name='smoking'
+                    options={[
+                      {
+                        label: "Yes",
+                        value: "Yes",
+                      },
+                      {
+                        label: "No",
+                        value: "No",
+                      },
+                    ]}
+                    className='basic-select'
+                    classNamePrefix='select'
+                    onChange={handleSelectChange}
+                  />
                 </div>
               </div>
               <div className='col-md-6 '>
@@ -249,33 +301,39 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                     History of any type of Cancer{" "}
                     <span className='login-danger'>*</span>
                   </label>
-                  <input className='form-control' type='text' />
+                  <input
+                    className='form-control'
+                    type='text'
+                    name='comorbidities.historyOfCancer'
+                    value={comorbidities.historyOfCancer}
+                    onChange={handleChange}
+                  />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Anemia</label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-                    <option value='Aplastic'>Aplastic Anemia</option>
-                    <option value='Iron'>Iron Deficency Anemia</option>
-                    <option value='Haemolytic'>Haemolytic Anemia</option>
-                    <option value='Sickle'>Sickle cell Anemia</option>
-                    <option value='Thalassemia'>Thalassemia</option>
-                  </select>
+                  <Select
+                    isMulti
+                    name='anemia'
+                    options={anemiaOptions}
+                    className='basic-multi-select'
+                    classNamePrefix='select'
+                    onChange={handleSelectChange}
+                  />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Platelet Disorder</label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-                    <option value='ITP'>ITP</option>
-                    <option value='DIC'>DIC</option>
-                    <option value='TTP'>TTP</option>
-                    <option value='HUS'>HUS</option>
-                    <option value='HELLP'>HELLP</option>
-                  </select>
+                  <Select
+                    isMulti
+                    name='plateletDisorder'
+                    options={plateletOptions}
+                    className='basic-multi-select'
+                    classNamePrefix='select'
+                    onChange={handleSelectChange}
+                  />
                 </div>
               </div>
               <div className='col-md-6'>
@@ -283,32 +341,35 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                   <label className='focus-label'>
                     History of Viral Infections
                   </label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-                    <option value='Influenza in child or mother'>
-                      Influenza in child or mother
-                    </option>
-                    <option value='Measles in child or mother'>
-                      Measles in child or mother
-                    </option>
-                    <option value='Mumps in child or mother'>
-                      Mumps in child or mother
-                    </option>
-                    <option value='Chicken pox in child or mother'>
-                      Chicken pox in child or mother
-                    </option>
-                  </select>
+                  <Select
+                    isMulti
+                    name='viralInfection'
+                    options={viralOptions}
+                    className='basic-multi-select'
+                    classNamePrefix='select'
+                    onChange={handleSelectChange}
+                  />
                 </div>
               </div>
               <div className='col-md-6'>
                 <div className='form-group local-forms'>
                   <label className='focus-label'>HIV In Parent</label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-
-                    <option value='Yes'>Yes</option>
-                    <option value='No'> No</option>
-                  </select>
+                  <Select
+                    name='HIV'
+                    options={[
+                      {
+                        label: "Yes",
+                        value: "Yes",
+                      },
+                      {
+                        label: "No",
+                        value: "No",
+                      },
+                    ]}
+                    className='basic-select'
+                    classNamePrefix='select'
+                    onChange={handleSelectChange}
+                  />
                 </div>
               </div>
             </div>

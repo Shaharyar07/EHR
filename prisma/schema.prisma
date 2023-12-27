@@ -45,15 +45,15 @@ enum Role {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String?
-  email         String?   @unique
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  name           String?
+  email          String?   @unique
   hashedPassword String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  accounts      Account[]
-  sessions      Session[]
-  role          Role      @default(DOCTOR)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  accounts       Account[]
+  sessions       Session[]
+  role           Role      @default(DOCTOR)
 }
 
 model VerificationRequest {
@@ -72,9 +72,9 @@ model Patient {
   name                            String
   gender                          String
   email                           String
-  image                          String?
+  image                           String?
   age                             Int
-  phoneNumber                           String
+  phoneNumber                     String
   bloodGroup                      String
   maritalStatus                   String
   occupation                      String
@@ -82,13 +82,12 @@ model Patient {
   cancer                          Boolean?
   vitals                          Vitals?
   complain                        Complains?
-  familyHistory                   familyHistory?
+  familyHistory                   FamilyHistory?
   complainHistory                 ComplainHistory?
   symptomHistory                  SymptomHistory?
   comorbidities                   Comorbidities?
   TransfusionAndTransplantHistory TransfusionAndTransplantHistory?
   PhysicalExamination             PhysicalExamination?
-  transfusionTransplantHistory    transfusionTransplantHistory?
   CBC                             CBC?
   LabTests                        LabTests?
 
@@ -100,12 +99,12 @@ model Vitals {
   id              String   @id @default(auto()) @map("_id") @db.ObjectId
   patientId       String   @unique @db.ObjectId
   patient         Patient  @relation(fields: [patientId], references: [id]) // add this relation field
-  height          Float
-  weight          Float
-  bloodPressure   String
-  pulseRate       Int
-  respiratoryRate Int
-  temperature     Float
+  height          Float?
+  weight          Float?
+  bloodPressure   String?
+  pulseRate       Int?
+  respiratoryRate Int?
+  temperature     Float?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 }
@@ -114,113 +113,109 @@ model Complains {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   patientId String   @unique @db.ObjectId
   patient   Patient  @relation(fields: [patientId], references: [id]) // add this relation field
-  complaint String
+  complaint String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model ComplainHistory {
-  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
-  patientId          String  @unique @db.ObjectId
-  patient            Patient @relation(fields: [patientId], references: [id]) // add this relation field
-  painCharacter      String
-  painSite           String
-  radiatingPain      Boolean
-  timing             String
-  alleviatingFactors String
-  symptoms           String
-  swellingSite       String
-  severitySymptom    Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                 String   @id @default(auto()) @map("_id") @db.ObjectId
+  patientId          String   @unique @db.ObjectId
+  patient            Patient  @relation(fields: [patientId], references: [id]) // add this relation field
+  painCharacter      String?
+  painSite           String?
+  radiatingPain      String?
+  timing             String?
+  alleviatingFactors String?
+  symptoms           String?
+  swellingSite       String?
+  severitySymptom    String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 }
 
 model SymptomHistory {
-  id                        String   @id @default(auto()) @map("_id") @db.ObjectId
-  patientId                 String   @unique @db.ObjectId
-  patient                   Patient  @relation(fields: [patientId], references: [id]) // add this relation field
-  constitutionalSymptoms    String[]
-  anemiaSymptoms            String[]
-  neutropeniaSymptoms       String[]
-  ThrmbocytopeniaSymptoms String[]
-  lumphomaSymptoms          String[]
-  hyperviscositySymptoms    String[]
-  thromboembolismSymptoms   String[]
-  durationSymptom           String
+  id                      String   @id @default(auto()) @map("_id") @db.ObjectId
+  patientId               String   @unique @db.ObjectId
+  patient                 Patient  @relation(fields: [patientId], references: [id]) // add this relation field
+  constitutionalSymptoms  String[]
+  anemiaSymptoms          String[]
+  neutropeniaSymptoms     String[]
+  lumphomaSymptoms        String[]
+  hyperviscositySymptoms  String[]
+  thromboembolismSymptoms String[]
+  durationSymptom         String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model familyHistory {
-  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
-  patientId              String   @unique @db.ObjectId
-  patient                Patient  @relation(fields: [patientId], references: [id]) // add this relation field
-  hemotlogicalMaliqnanay String[]
+model FamilyHistory {
+  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  patientId             String   @unique @db.ObjectId
+  patient               Patient  @relation(fields: [patientId], references: [id]) // add this relation field
+  hematologicMalignancy String[]
 }
 
 model Comorbidities {
   id               String   @id @default(auto()) @map("_id") @db.ObjectId
   patientId        String   @unique @db.ObjectId
   patient          Patient  @relation(fields: [patientId], references: [id]) // add this relation field
+  syndromes        String[]
   hepatitis        String[]
-  diabetes         String[]
-  surgeryInPast    String[]
-  tb               Boolean
-  chemicalExposure String
-  chemoTherapy     String
-  toxicExposure    String
-  radiations       Boolean
-  alcohol          Boolean
-  smoking          Boolean
-  historyOfCancer  String
+  diabetes         String?
+  surgeryInPast    String?
+  tb               String?
+  chemicalExposure String?
+  chemoTherapy     String?
+  toxicExposure    String?
+  radiations       String?
+  alcohol          String?
+  smoking          String?
+  historyOfCancer  String?
   anemia           String[]
   plateletDisorder String[]
+  viralInfection   String[]
+  HIV              String?
 }
 
 model TransfusionAndTransplantHistory {
   id                  String   @id @default(auto()) @map("_id") @db.ObjectId
   patientId           String   @unique @db.ObjectId
   patient             Patient  @relation(fields: [patientId], references: [id]) // add this relation field
-  transfusionInPast   String[]
-  transfusionReaction String[]
-  transplantInPast    String[]
+  transfusionInPast   String?
+  transfusionReaction String?
+  transplant          String?
   medicalHistory      String[]
 }
+
 model PhysicalExamination {
   id                  String   @id @default(auto()) @map("_id") @db.ObjectId
   patientId           String   @unique @db.ObjectId
   patient             Patient  @relation(fields: [patientId], references: [id]) // add this relation field
   eyes                String[]
   mouthUlcer          String[]
-  lymphadenopathy     Boolean
+  lymphadenopathy     String?
   visceralExamination String[]
-  skin                String
-  MediastinalMasses  Boolean
-}
-
-model transfusionTransplantHistory {
-  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
-  patientId             String   @unique @db.ObjectId
-  patient               Patient  @relation(fields: [patientId], references: [id]) // add this relation field
-  cnsInvolvementSystems String[]
+  skin                String[]
+  mediationalMasses   String?
 }
 
 model CBC {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   patientId   String  @unique @db.ObjectId
   patient     Patient @relation(fields: [patientId], references: [id]) // add this relation field
-  wbc         Float
-  rbc         Float
-  platelet    Float
-  neutrophils Float
-  lymphocytes Float
+  wbc         String?
+  rbc         String?
+  platelet    String?
+  neutrophils String?
+  lymphocytes String?
 }
 
 model LabTests {
   id         String  @id @default(auto()) @map("_id") @db.ObjectId
   patientId  String  @unique @db.ObjectId
   patient    Patient @relation(fields: [patientId], references: [id]) // add this relation field
-  cbc        Boolean
-  bloodsmear Boolean
+  cbc        String?
+  bloodSmear String?
 }

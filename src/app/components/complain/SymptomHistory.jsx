@@ -73,11 +73,16 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
   // ];
 
   const handleSelectChange = (selectedOptions, { name }) => {
+    // Ensure selectedOptions is an array
+    if (!Array.isArray(selectedOptions)) {
+      selectedOptions = [selectedOptions];
+    }
+
     // Extracting the last part of the name (after the last dot)
     const dropdownName = name.split(".").pop();
     // Creating a new object with the name of the dropdown and the selected options
     const newObject = {
-      [dropdownName]: selectedOptions,
+      [dropdownName]: selectedOptions.map((option) => option.value),
     };
     // Updating the state with the new object
     handleChange({
@@ -103,12 +108,13 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Constitutional Symptoms</label>
                   <Select
-                    name='symptomHistory.constitutionalSymptoms'
+                    name='constitutionalSymptoms'
                     isMulti
                     options={constitutionalSymptomsOptions}
-                    value={symptomHistory.constitutionalSymptoms}
-                    labelledBy='Constitutional Symptoms'
+                    className='basic-multi-select'
+                    classNamePrefix='select'
                     onChange={handleSelectChange}
+                    required
                   />
                 </div>
               </div>
@@ -118,12 +124,13 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Symptoms of Anemia</label>
                   <Select
-                    name='symptomHistory.anemiaSymptoms'
-                    labelledBy='Symptoms of Anemia'
+                    name='anemiaSymptoms'
+                    className='basic-multi-select'
+                    classNamePrefix='select'
                     isMulti
                     options={anemiaSymptomsOptions}
-                    value={symptomHistory.anemiaSymptoms}
                     onChange={handleSelectChange}
+                    required
                   />
                 </div>
               </div>
@@ -133,16 +140,18 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Symptoms of Neutropenia</label>
                   <Select
-                    name='symptomHistory.neutronpeniaSymptoms'
-                    value={symptomHistory.neutronpeniaSymptoms}
+                    name='neutropeniaSymptoms'
                     onChange={handleSelectChange}
                     isMulti
+                    className='basic-multi-select'
+                    classNamePrefix='select'
                     options={[
                       {
                         label: "Recurrent Infections",
                         value: "Recurrent Infections",
                       },
                     ]}
+                    required
                   />
                 </div>
               </div>
@@ -154,12 +163,13 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     Symptoms of Thrombocytopenia
                   </label>
                   <Select
-                    className='form-control select'
-                    name='symptomHistory.thrombocytopeniaSymptoms'
-                    value={symptomHistory.thrombocytopeniaSymptoms}
+                    name='thromboembolismSymptoms'
                     onChange={handleSelectChange}
                     isMulti
                     options={thrombocytopeniaSymptomsOptions}
+                    required
+                    className='basic-multi-select'
+                    classNamePrefix='select'
                   />
                 </div>
               </div>
@@ -169,12 +179,13 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Symptoms of Lymphoma</label>
                   <Select
-                    className='form-control select'
-                    name='symptomHistory.lymphomaSymptoms'
-                    value={symptomHistory.lymphomaSymptoms}
+                    className='basic-multi-select'
+                    classNamePrefix='select'
+                    name='lumphomaSymptoms'
                     onChange={handleSelectChange}
                     options={lymphomaSymptomsOptions}
                     isMulti
+                    required
                   />
                 </div>
               </div>
@@ -186,12 +197,13 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     Symptoms of Hyperviscosity
                   </label>
                   <Select
-                    className='form-control select'
-                    name='symptomHistory.hyperviscositySymptoms'
-                    value={symptomHistory.hyperviscositySymptoms}
+                    className='basic-multi-select'
+                    classNamePrefix='select'
+                    name='hyperviscositySymptoms'
                     onChange={handleSelectChange}
                     options={hyperviscositySymptomsOptions}
                     isMulti
+                    required
                   />
                 </div>
               </div>
@@ -203,12 +215,13 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     Symptoms of Thromboembolism
                   </label>
                   <Select
-                    className='form-control select'
-                    name='symptomHistory.thromboembolismSymptoms'
-                    value={symptomHistory.thromboembolismSymptoms}
+                    className='basic-multi-select'
+                    classNamePrefix='select'
+                    name='thromboembolismSymptoms'
                     onChange={handleSelectChange}
                     options={thromboembolismSymptomsOptions}
                     isMulti
+                    required
                   />
                 </div>
               </div>
@@ -220,11 +233,12 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     Duration of Signs and Symptoms
                   </label>
                   <Select
-                    className='form-control select'
-                    name='symptomHistory.durationSymptoms'
-                    value={symptomHistory.durationSymptoms}
+                    className='basic-multi-select'
+                    classNamePrefix='select'
+                    name='durationSymptom'
                     onChange={handleSelectChange}
                     options={durationSymptomsOptions}
+                    required
                   />
                 </div>
               </div>

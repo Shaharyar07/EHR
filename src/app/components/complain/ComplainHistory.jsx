@@ -1,6 +1,31 @@
 import React from "react";
+import Select from "react-select";
 
 const ComplainHistory = ({ complainHistory, handleChange }) => {
+  const handleSelectChange = (selectedOptions, { name }) => {
+    // Ensure selectedOptions is an array
+    if (!Array.isArray(selectedOptions)) {
+      selectedOptions = [selectedOptions];
+    }
+
+    // Extracting the last part of the name (after the last dot)
+    const dropdownName = name.split(".").pop();
+    // Creating a new object with the name of the dropdown and the selected options
+    const newObject = {
+      [dropdownName]: selectedOptions.map((option) => option.value),
+    };
+    // Updating the state with the new object
+    handleChange({
+      target: {
+        name: "complainHistory",
+        value: {
+          ...complainHistory,
+          ...newObject,
+        },
+      },
+    });
+  };
+
   return (
     <div className='card-box p-4'>
       <h3 className='card-title mb-3'>History of Presenting Complain</h3>
@@ -14,17 +39,16 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                   <label className='focus-label'>
                     Generalized Bone & Joint Pain
                   </label>
-                  <select
+                  <Select
                     className='form-control select'
                     name='complainHistory.painCharacter'
-                    value={complainHistory.painCharacter}
-                    onChange={handleChange}
+                    onChange={handleSelectChange}
+                    options={[
+                      { value: "Yes", label: "Yes" },
+                      { value: "No", label: "No" },
+                    ]}
                     required
-                  >
-                    <option value=''>Select Option</option>
-                    <option value='Yes'>Yes</option>
-                    <option value='No'>No</option>
-                  </select>
+                  />
                 </div>
               </div>
               <div className='col-12 col-md-6 col-xl-6'>
@@ -84,17 +108,18 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
               <div className='col-md-6'>
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Timing</label>
-                  <select
+                  <Select
                     className='form-control select'
                     name='complainHistory.timing'
-                    value={complainHistory.timing}
-                    onChange={handleChange}
+                    onChange={handleSelectChange}
+                    options={[
+                      { value: "Morning", label: "Morning" },
+                      { value: "Evening", label: "Evening" },
+                      { value: "Night", label: "Night" },
+                      { value: "All Day", label: "All Day" },
+                    ]}
                     required
-                  >
-                    <option value=''>Select Option</option>
-                    <option value='constant'>Remains Constant</option>
-                    <option value='variable'>Changes throughout the day</option>
-                  </select>
+                  />
                 </div>
               </div>
               <div className='col-md-6'>
@@ -102,19 +127,16 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                   <label className='focus-label'>
                     Exacerbating & Alleviating Factor
                   </label>
-                  <select
+                  <Select
                     className='form-control select'
-                    name='complainHistory.alleriatingFactors'
-                    value={complainHistory.alleriatingFactors}
-                    onChange={handleChange}
+                    name='complainHistory.alleviatingFactors'
+                    onChange={handleSelectChange}
+                    options={[
+                      { value: "Exacerbating", label: "Exacerbating" },
+                      { value: "Alleviating", label: "Alleviating" },
+                    ]}
                     required
-                  >
-                    <option value=''>Select Option</option>
-                    <option value='exacerbate'>
-                      Exacerbating with Physical Abilities
-                    </option>
-                    <option value='alleviates'>Alleviates with rest</option>
-                  </select>
+                  />
                 </div>
               </div>
             </div>
@@ -124,18 +146,16 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                 <h5 className='my-field'>2. Onset of Sign & Symptoms</h5>
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Sign & Symptoms</label>
-                  <select
+                  <Select
                     className='form-control select'
                     name='complainHistory.symptoms'
-                    placeholder='Select Sign & Symptoms'
-                    value={complainHistory.symptoms}
-                    onChange={handleChange}
+                    onChange={handleSelectChange}
+                    options={[
+                      { value: "Gradual", label: "Gradual" },
+                      { value: "Sudden", label: "Sudden" },
+                    ]}
                     required
-                  >
-                    <option value=''>Select Option</option>
-                    <option value='Acute'>Acute</option>
-                    <option value='Chronic'>Chronic</option>
-                  </select>
+                  />
                 </div>
               </div>
 
@@ -171,14 +191,15 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                       <label className='form-check-label'>
                         <input
                           type='radio'
-                          name='complainHistory.severitySymptoms'
+                          name='complainHistory.severitySymptom'
                           className='form-check-input'
                           value={severityValue}
                           onChange={handleChange}
                           checked={
-                            complainHistory.severitySymptoms ===
+                            complainHistory.severitySymptom ===
                             severityValue.toString()
                           }
+                          
                         />
                         {severityValue}
                       </label>

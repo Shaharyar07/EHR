@@ -1,6 +1,47 @@
-import React from 'react'
+import React from "react";
+import Select from "react-select";
 
-const TransfusionHistory = () => {
+const TransfusionHistory = ({ transfusionHistory, handleChange }) => {
+  const transfusionOptions = [
+    { value: "RCB", label: "RCB" },
+    { value: "Platelets", label: "Platelets" },
+    { value: "Plasma Products", label: "Plasma Products" },
+  ];
+
+  const transplantOptions = [
+    { value: "Autologous Stem cell", label: "Autologous Stem cell" },
+    { value: "Allogenic Stem cell", label: "Allogenic Stem cell" },
+  ];
+
+  const infectionOptions = [
+    { value: "Yes", label: "Yes" },
+    { value: "No", label: "No" },
+  ];
+
+  const handleSelectChange = (selectedOptions, { name }) => {
+    // Ensure selectedOptions is an array
+    if (!Array.isArray(selectedOptions)) {
+      selectedOptions = [selectedOptions];
+    }
+
+    // Extracting the last part of the name (after the last dot)
+    const dropdownName = name.split(".").pop();
+    // Creating a new object with the name of the dropdown and the selected options
+    const newObject = {
+      [dropdownName]: selectedOptions.map((option) => option.value),
+    };
+    // Updating the state with the new object
+    handleChange({
+      target: {
+        name: "transfusionHistory",
+        value: {
+          ...transfusionHistory,
+          ...newObject,
+        },
+      },
+    });
+  };
+
   return (
     <div className='card-box p-4'>
       <h3 className='card-title mb-3'>Transfusion and Transplant History</h3>
@@ -13,12 +54,12 @@ const TransfusionHistory = () => {
                   <label className='focus-label'>
                     Any Transfusion recieved in the Past{" "}
                   </label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-                    <option value='RCB'>RCB</option>
-                    <option value='Platelets'>Platelets</option>
-                    <option value='Plasma Products'>Plasma Products</option>
-                  </select>
+                  <Select
+                    className='form-control select'
+                    name='transfusionHistory.transfusionInPast'
+                    onChange={handleSelectChange}
+                    options={transfusionOptions}
+                  />
                 </div>
               </div>
               <div className='col-md-6'>
@@ -26,9 +67,12 @@ const TransfusionHistory = () => {
                   <label className='focus-label'>
                     Any Transfusion infection reaction{" "}
                   </label>
-                  <select className='form-control select' name='character'>
-                    <input className='form-control' type='text' />
-                  </select>
+                  <Select
+                    className='form-control select'
+                    name='transfusionHistory.transfusionReaction'
+                    onChange={handleSelectChange}
+                    options={infectionOptions}
+                  />
                 </div>
               </div>
               <div className='col-md-6'>
@@ -36,13 +80,12 @@ const TransfusionHistory = () => {
                   <label className='focus-label'>
                     Any Transplant in the Past{" "}
                   </label>
-                  <select className='form-control select' name='character'>
-                    <option value=''>Select Option</option>
-                    <option value='Autologous Stem cell'>
-                      Autologous Stem cell
-                    </option>
-                    <option value='Allogenic Stem cell'>Allogenic</option>
-                  </select>
+                  <Select
+                    className='form-control select'
+                    name='transfusionHistory.transplant'
+                    onChange={handleSelectChange}
+                    options={transplantOptions}
+                  />
                 </div>
               </div>
             </div>
@@ -51,6 +94,6 @@ const TransfusionHistory = () => {
       </div>
     </div>
   );
-}
+};
 
-export default TransfusionHistory
+export default TransfusionHistory;
