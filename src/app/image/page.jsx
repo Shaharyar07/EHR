@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import UploadImage from "@app/components/forms/UploadIamge";
 import prisma from "@app/utils/prismadb";
+export const dynamic = "force-dynamic";
 const getPatients = async () => {
   const patients = await prisma.patient.findMany();
   return patients || [];

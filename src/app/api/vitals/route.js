@@ -24,6 +24,11 @@ export async function POST(request) {
     const vital = await prisma.vitals.create({
       data: {
         ...body,
+        pulseRate: parseInt(body.pulseRate),
+        temperature: parseFloat(body.temperature),
+        height: parseFloat(body.height),
+        weight: parseFloat(body.weight),
+        respiratoryRate: parseInt(body.respiratoryRate),
       },
     });
 
@@ -53,7 +58,7 @@ export async function POST(request) {
       JSON.stringify({
         data: {
           status: 500,
-          error: "Some error occurred with creating a vital",
+          message: "Some error occurred with creating a vital",
         },
       })
     );
