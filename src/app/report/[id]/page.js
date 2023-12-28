@@ -26,7 +26,7 @@ const getPatientReport = async (id) => {
 
 export default async function Page({ params }) {
   const patientReport = await getPatientReport(params.id);
-  console.log(patientReport);
+  // console.log(patientReport);
   return (
     <div className='page-wrapper'>
       <div className='content'>
@@ -59,16 +59,12 @@ export default async function Page({ params }) {
                         <h4 className='text-center'>
                           Status:{" "}
                           <>
-                            {patientReport?.cancer ? (
-                              <>
-                                {patientReport?.cancer === "cancer" ? (
-                                  <span className='status-red'>Cancer</span>
-                                ) : (
-                                  <span className='status-green'>Healthy</span>
-                                )}
-                              </>
-                            ) : (
+                            {patientReport?.cancer === null ? (
                               <span className='status-red'>Test not taken</span>
+                            ) : patientReport?.cancer ? (
+                              <span className='status-red'>Cancer</span>
+                            ) : (
+                              <span className='status-green'>Healthy</span>
                             )}
                           </>
                         </h4>
@@ -606,7 +602,7 @@ export default async function Page({ params }) {
                     <div className='form-group local-forms'>
                       <label className='focus-label'>
                         Mediastinal Masses:{" "}
-                        {patientReport?.PhysicalExamination?.mediastinalMasses}
+                        {patientReport?.PhysicalExamination?.mediationalMasses}
                       </label>
                     </div>
                   </div>
