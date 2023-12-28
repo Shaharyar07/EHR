@@ -1,6 +1,7 @@
 import AddVitals from "@app/components/vitals/AddVitals";
 import prisma from "@app/utils/prismadb";
 import React from "react";
+export const dynamic = "force-dynamic";
 const getPatients = async () => {
   const patients = await prisma.patient.findMany();
   return patients || [];

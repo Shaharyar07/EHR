@@ -5,6 +5,7 @@ import image from "../assets/img/user.jpg";
 import Link from "next/link";
 import FeatherIcon from "feather-icons-react";
 import prisma from "@app/utils/prismadb";
+export const dynamic = "force-dynamic";
 const getPatients = async () => {
   const patients = await prisma.patient.findMany();
   return patients || [];

@@ -11,6 +11,7 @@ import ComplainHistory from "./ComplainHistory";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 const AddComplain = ({ patient }) => {
   const router = useRouter();
@@ -111,11 +112,16 @@ const AddComplain = ({ patient }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post("/api/complain", formState);
+      const response = await axios.post(
+        "/api/complain",
+        
+        formState
+      );
       const data = response?.data?.data;
       if (data.status === 200) {
         toast.success("Complain created successfully");
         setLoading(false);
+        revalidatePath(`/patientprofile/${patient.id}`);
         router.push(`/patientprofile/${patient.id}`);
       } else {
         toast.error(data.message);

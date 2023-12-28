@@ -5,6 +5,7 @@ import profileImage from "@app/assets/img/user.jpg";
 import AddedVitals from "@app/components/vitals/AddedVitals";
 
 import prisma from "@app/utils/prismadb";
+export const dynamic = "force-dynamic";
 
 const getPatientProfile = async (id) => {
   const patient = await prisma.patient.findUnique({

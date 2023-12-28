@@ -3,6 +3,7 @@ import prisma from "@app/utils/prismadb";
 import FeatherIcon from "feather-icons-react/build/FeatherIcon";
 import Link from "next/link";
 import Image from "next/image";
+export const dynamic = "force-dynamic";
 const getPatientReport = async (id) => {
   const patientReport = await prisma.patient.findUnique({
     where: {
