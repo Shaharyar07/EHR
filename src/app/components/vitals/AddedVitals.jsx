@@ -68,7 +68,7 @@ const AddedVitals = async ({ vitals, complain, id }) => {
           </Link>
         ) : (
           <Link href={`/report/${id}`}>
-            <button className='btn btn-primary btn-rounded'>Report</button>
+            <button className='btn btn-primary btn-rounded'>View Report</button>
           </Link>
         )}
       </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import prisma from "@app/utils/prismadb";
-
+import FeatherIcon from "feather-icons-react/build/FeatherIcon";
+import Link from "next/link";
+import Image from "next/image";
 const getPatientReport = async (id) => {
   const patientReport = await prisma.patient.findUnique({
     where: {
@@ -33,10 +35,13 @@ export default async function Page({ params }) {
             <div className='col-sm-12'>
               <ul className='breadcrumb'>
                 <li className='breadcrumb-item'>
-                  <a href='invoices.html'>Accounts </a>
+                  <Link href='/patients'>Patients </Link>
                 </li>
                 <li className='breadcrumb-item'>
-                  <i className='feather-chevron-right' />
+                  <FeatherIcon
+                    className='feather-chevron-right'
+                    icon='chevron-right'
+                  />
                 </li>
                 <li className='breadcrumb-item active'> Report</li>
               </ul>
@@ -50,157 +55,124 @@ export default async function Page({ params }) {
                 <div className='invoice-head-clinic'>
                   <div className='row'>
                     <div className='col-12 col-md-6'>
-                      <div className='invoice-counts'>
-                        <h4>
-                          Invoice <span>#345766</span>
-                        </h4>
-                      </div>
-                    </div>
-                    <div className='col-12 col-md-6'>
                       <div className='invoice-counts float-end'>
-                        <h4>
+                        <h4 className='text-center'>
                           Status:{" "}
-                          <a href='javascript:;' className='status-green'>
-                            Success
-                          </a>
+                          <>
+                            {patientReport?.cancer ? (
+                              <>
+                                {patientReport?.cancer === "cancer" ? (
+                                  <span className='status-red'>Cancer</span>
+                                ) : (
+                                  <span className='status-green'>Healthy</span>
+                                )}
+                              </>
+                            ) : (
+                              <span className='status-red'>Test not taken</span>
+                            )}
+                          </>
                         </h4>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className='row custom-invoice'>
-                  <div className='col-12 col-md-6 m-b-20'>
-                    <img
-                      src='assets/img/logo.png'
-                      width={35}
-                      height={35}
-                      alt=''
-                    />{" "}
-                    <span>EHR</span>
-                    <ul className='list-unstyled invoice-clinic mt-2'>
-                      <li>name</li>
-                      {/* <li></li>
-                    <li>GST No:2914035</li> */}
-                    </ul>
-                  </div>
-                  <div className='col-12 col-md-6 m-b-20'>
-                    {/* <div className="invoice-details">
-                    <h3>Bill To:</h3>
-                    <h3>Zydus Medicals</h3>
-                    <ul className="list-unstyled invoice-clinic">
-                      <li>5754 Airport Rd</li>
-                      <li>Coosada, AL, 36020</li>
-                      <li>United States</li>
-                      <li>888-777-6655</li>
+                  <div className='col-12 col-md-6 '>
+                    <ul className='list-unstyled invoice-clinic mt-5'>
                       <li>
-                        <a
-                          href="https://preclinic.dreamguystech.com/cdn-cgi/l/email-protection"
-                          className="_cf_email_"
-                          data-cfemail="2e4c4f5c5c574d5b4a4f6e4b564f435e424b004d4143"
-                        >
-                          [email&nbsp;protected]
-                        </a>
+                        <strong>Patient Name:</strong> {patientReport?.name}
                       </li>
                     </ul>
-                  </div> */}
                   </div>
+                  <div className='col-12 col-md-6'></div>
                 </div>
 
                 {/* Complain */}
-
-                <div className='col-12 col-sm-12'>
-                  <div className='form-group local-forms'>
-                    <p>
-                      Presenting Complain: Lorem ipsum dolor sit amet
-                      consectetur adipisicing elit. Earum hic veniam molestias
-                      commodi fugiat magni quos labore mollitia illo suscipit
-                      odit ipsam provident doloribus officiis temporibus
-                      dolores, quas enim fugit rerum praesentium maiores
-                      voluptatum dicta, pariatur voluptatem! Dolore atque,
-                      incidunt, cum ut temporibus debitis distinctio quidem
-                      error minima praesentium vero eligendi. Ab optio vel
-                      voluptate earum. Voluptates quis harum, accusamus fugiat
-                      molestias maiores nobis deleniti praesentium tempore!
-                    </p>
-                  </div>
-                </div>
-
-                {/* Cancer? */}
-
                 <div className='row'>
                   <div className='col-12'>
-                    <div className='form-heading'>
-                      <h4>Cancer Status</h4>
-                    </div>
-                  </div>
-
-                  <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>Cancer Status:</label>
+                      <p>
+                        <strong>Complain:</strong>{" "}
+                        {patientReport?.complain?.complaint}
+                      </p>
                     </div>
                   </div>
                 </div>
+
                 {/* Vitals */}
-                <div className='row'>
+                {patientReport?.vitals ? (
                   <div className='row'>
                     <div className='col-12'>
                       <div className='form-heading'>
                         <h4>Patient Vitals</h4>
                       </div>
                     </div>
-                    <div className='col-md-6'>
+                    <div className='col-md-12'>
                       <div className='form-group local-forms'>
-                        <label>Patient Name: Nimra</label>
-                        {/* <p>Patient: Nimra</p> */}
+                        <label>MR Num: {patientReport?.id}</label>
                       </div>
                     </div>
                     <div className='col-md-6'>
                       <div className='form-group local-forms'>
-                        <label>MR Number: 96428735</label>
-                        {/* <p>MR Number: 12345</p> */}
+                        <label>
+                          BP: {patientReport?.vitals?.bloodPressure}
+                        </label>
+                      </div>
+                    </div>
+                    <div className='col-md-6'>
+                      <div className='form-group local-forms'>
+                        <label>
+                          Pulse Rate: {patientReport?.vitals?.pulseRate}
+                        </label>
+                      </div>
+                    </div>
+                    <div className='col-md-6'>
+                      <div className='form-group local-forms'>
+                        <label>
+                          Temperature: {patientReport?.vitals?.temperature}
+                        </label>
+                      </div>
+                    </div>
+                    <div className='col-md-6'>
+                      <div className='form-group local-forms'>
+                        <label>
+                          Respiratory Rate:{" "}
+                          {patientReport?.vitals?.respiratoryRate}
+                        </label>
+                      </div>
+                    </div>
+                    <div className='col-md-6'>
+                      <div className='form-group local-forms'>
+                        <label>Weight: {patientReport?.vitals?.weight}</label>
+                      </div>
+                    </div>
+                    <div className='col-md-6'>
+                      <div className='form-group local-forms'>
+                        <label>Height: {patientReport?.vitals?.height}</label>
                       </div>
                     </div>
                   </div>
-
+                ) : (
                   <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>BP</label>
+                    <div className='col-12'>
+                      <div className='form-heading'>
+                        <h4>Patient Vitals</h4>
                       </div>
                     </div>
-                    <div className='col-md-6'>
+                    <div className='col-md-12'>
                       <div className='form-group local-forms'>
-                        <label>Pulse Rate</label>
+                        <label>MR Num: {patientReport?.id}</label>
                       </div>
                     </div>
-                  </div>
-
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>Temperature</label>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>Respiratory Rate</label>
+                    <div className='col-md-12'>
+                      <div className='col-lg-12'>
+                        <div className='alert alert-danger'>
+                          <strong>Vitals Not Added Yet!</strong>
+                        </div>
                       </div>
                     </div>
                   </div>
-
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>Weight</label>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>Height</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                )}
 
                 {/* History of Presenting Complain */}
                 <div className='row'>
@@ -209,648 +181,501 @@ export default async function Page({ params }) {
                       <h4>Pain</h4>
                     </div>
                   </div>
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Generalized Bone & Joint Pain
-                        </label>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='gen-label'>Site</label>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Unilateral or Bilateral Localized Site
-                        </label>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Timing</label>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Exacerbating & Alleviating Factor
-                        </label>
-                      </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Generalized Bone & Joint Pain:{" "}
+                        {patientReport?.complainHistory?.painCharacter}
+                      </label>
                     </div>
                   </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='gen-label'>
+                        Site: {patientReport?.complainHistory?.painSite}
+                      </label>
+                    </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Unilateral or Bilateral Localized Site:{" "}
+                        {patientReport?.complainHistory?.radiatingPain}
+                      </label>
+                    </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Timing: {patientReport?.complainHistory?.timing}
+                      </label>
+                    </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Exacerbating & Alleviating Factor:{" "}
+                        {patientReport?.complainHistory?.alleviatingFactors}
+                      </label>
+                    </div>
+                  </div>
+                </div>
 
+                <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
                       <h4>Onset of Sign & Symptoms</h4>
                     </div>
                   </div>
-
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Sign & Symptoms: </label>
-                      </div>
-                    </div>
-                    <div className='col-12'>
-                      <div className='form-heading'>
-                        <h4>Swelling</h4>
-                      </div>
-                    </div>
-                    <div className='row'></div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Site:</label>
-                      </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Sign & Symptoms:{" "}
+                        {patientReport?.complainHistory?.symptoms}
+                      </label>
                     </div>
                   </div>
+                  <div className='col-12'>
+                    <div className='form-heading'>
+                      <h4>Swelling</h4>
+                    </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Site: {patientReport?.complainHistory?.swellingSite}
+                      </label>
+                    </div>
+                  </div>
+                </div>
 
+                <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
                       <h4>Severity of Symptoms</h4>
                     </div>
                   </div>
-
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='gen-label'>
-                          Severity of Symptoms:
-                        </label>
-                      </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='gen-label'>
+                        Severity of Symptoms::{" "}
+                        {patientReport?.complainHistory?.severitySymptom}
+                      </label>
                     </div>
                   </div>
                 </div>
 
                 {/* Sign and Symptoms */}
-
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
                       <h4>Signs & Symptoms</h4>
                     </div>
                   </div>
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Constitutional Symptoms:{" "}
-                        </label>
-                      </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Constitutional Symptoms:{" "}
+                        {patientReport?.symptomHistory?.constitutionalSymptoms}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Symptoms of Anemia:
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Symptoms of Anemia:{" "}
+                        {patientReport?.symptomHistory?.anemiaSymptoms}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Symptoms of Neutropenia:
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Symptoms of Neutropenia:{" "}
+                        {patientReport?.symptomHistory?.neutropeniaSymptoms}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Symptoms of Thrombocytopenia:
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Symptoms of Thrombocytopenia:{" "}
+                        {patientReport?.symptomHistory?.thromboembolismSymptoms}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Symptoms of Lymphoma:
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Symptoms of Lymphoma:{" "}
+                        {patientReport?.symptomHistory?.lumphomaSymptoms}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Symptoms of Hyperviscosity:
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Symptoms of Hyperviscosity:{" "}
+                        {patientReport?.symptomHistory?.hyperviscositySymptoms}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Symptoms of Thromboembolism:
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Symptoms of Thromboembolism:{" "}
+                        {patientReport?.symptomHistory?.thromboembolismSymptoms}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Duration of Signs and Symptoms:{" "}
-                        </label>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Symptoms of CNS Involvement:
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Duration of Signs and Symptoms:{" "}
+                        {patientReport?.symptomHistory?.durationSymptom}
+                      </label>
                     </div>
                   </div>
                 </div>
                 {/* Family History */}
-
-                <div>
+                <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
                       <h4>Family History</h4>
                     </div>
                   </div>
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Hematologic Malignancy:
-                        </label>
-                      </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Hematologic Malignancy:{" "}
+                        {patientReport?.familyHistory?.hematologicMalignancy.join(
+                          ", "
+                        )}
+                      </label>
                     </div>
                   </div>
                 </div>
+
                 {/* Comorbidities */}
-
                 <div className='row'>
-                  <div className='form-heading'>
-                    <h4>Comorbidities</h4>
+                  <div className='col-12'>
+                    <div className='form-heading'>
+                      <h4>Comorbidities</h4>
+                    </div>
                   </div>
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Syndromes:</label>
-                      </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Syndromes:{" "}
+                        {patientReport?.comorbidities?.syndromes.join(", ")}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Hepatitis:</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Hepatitis:{" "}
+                        {patientReport?.comorbidities?.hepatitis.join(", ")}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>Diabetes:</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label>
+                        Diabetes: {patientReport?.comorbidities?.diabetes}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>Any Surgery in the Past: </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label>
+                        Any Surgery in the Past:{" "}
+                        {patientReport?.comorbidities?.surgeryInPast}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>TB:</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        TB: {patientReport?.comorbidities?.tb}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>Chemicals</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label>
+                        Chemicals:{" "}
+                        {patientReport?.comorbidities?.chemicalExposure}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Chemotherapy</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Chemotherapy:{" "}
+                        {patientReport?.comorbidities?.chemotherapy}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>Toxins</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label>
+                        Toxins: {patientReport?.comorbidities?.toxicExposure}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Radiations</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Radiations: {patientReport?.comorbidities?.radiations}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Alcohol</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Alcohol: {patientReport?.comorbidities?.alcohol}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Smoking</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Smoking: {patientReport?.comorbidities?.smoking}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>History of any type of Cancer</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label>
+                        History of any type of Cancer:{" "}
+                        {patientReport?.comorbidities?.cancerOfHistory}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Anemia</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Anemia:{" "}
+                        {patientReport?.comorbidities?.anemia.join(", ")}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Platelet Disorder</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Platelet Disorder:{" "}
+                        {patientReport?.comorbidities?.plateletDisorder.join(
+                          ", "
+                        )}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          History of Viral Infections
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Viral Infections:{" "}
+                        {patientReport?.comorbidities?.viralInfection.join(
+                          ", "
+                        )}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>HIV In Parent</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        HIV In Parent: {patientReport?.comorbidities?.HIV}
+                      </label>
                     </div>
                   </div>
                 </div>
 
-                {/* Transfusion and Transplant History  */}
-
+                {/* Transfusion and Transplant History */}
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
                       <h4>Transfusion and Transplant History </h4>
                     </div>
                   </div>
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Any Transfusion received in the Past
-                        </label>
-                      </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Any Transfusion received in the Past:{" "}
+                        {
+                          patientReport?.TransfusionAndTransplantHistory
+                            ?.transfusionInPast
+                        }
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Any Transfusion infection reaction
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Any Transfusion infection reaction :{" "}
+                        {
+                          patientReport?.TransfusionAndTransplantHistory
+                            ?.transfusionReaction
+                        }
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>
-                          Any Transplant in the Past
-                        </label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Any Transplant in the Past :{" "}
+                        {
+                          patientReport?.TransfusionAndTransplantHistory
+                            ?.transplant
+                        }
+                      </label>
                     </div>
                   </div>
                 </div>
-                {/* Medication History */}
 
+                {/* Medication History */}
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
                       <h4>Medication History</h4>
                     </div>
                   </div>
-
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>Medication History:</label>
+                      <label className='focus-label'>
+                        Medication History: :{" "}
+                        {patientReport?.TransfusionAndTransplantHistory?.medicalHistory?.join(
+                          ", "
+                        )}
+                      </label>
                     </div>
                   </div>
                 </div>
 
                 {/* Physical Examination */}
                 <div className='row'>
-                  <div className='form-heading'>
-                    <h4>Physical Examination</h4>
-                  </div>
-                  <div className='col-md-6'>
-                    <div className='form-group local-forms'>
-                      <label className='focus-label'>Eyes:</label>
-                    </div>
-                  </div>
-                  <div className='col-md-6'>
-                    <div className='form-group local-forms'>
-                      <label className='focus-label'>Mouth Ulcers:</label>
-                    </div>
-                  </div>
-                  <div className='col-md-6'>
-                    <div className='form-group local-forms'>
-                      <label className='focus-label'>Lymphadenopathy:</label>
+                  <div className='col-12'>
+                    <div className='form-heading'>
+                      <h4>Physical Examination</h4>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
                       <label className='focus-label'>
-                        Visceral Examination:
+                        Eyes:{" "}
+                        {patientReport?.PhysicalExamination?.eyes?.join(", ")}
                       </label>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>Skin:</label>
+                      <label className='focus-label'>
+                        Mouth Ulcers:{" "}
+                        {patientReport?.PhysicalExamination?.mouthUlcer?.join(
+                          ", "
+                        )}
+                      </label>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>Mediastinal Masses:</label>
+                      <label className='focus-label'>
+                        Lymphadenopathy:{" "}
+                        {patientReport?.PhysicalExamination?.lymphadenopathy}
+                      </label>
+                    </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Visceral Examination:{" "}
+                        {patientReport?.PhysicalExamination?.visceralExamination?.join(
+                          ", "
+                        )}
+                      </label>
+                    </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Skin:{" "}
+                        {patientReport?.PhysicalExamination?.skin?.join(", ")}
+                      </label>
+                    </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Mediastinal Masses:{" "}
+                        {patientReport?.PhysicalExamination?.mediastinalMasses}
+                      </label>
                     </div>
                   </div>
                 </div>
 
                 {/* CBC IF Available */}
-
                 <div className='row'>
-                  <div className='row'>
+                  <div className='col-12'>
                     <div className='form-heading'>
                       <h4>CBC If Available</h4>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>WBC</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        WBC: {patientReport?.CBC?.wbc}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>RBC</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        RBC: {patientReport?.CBC?.rbc}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Platelets</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Platelets: {patientReport?.CBC?.platelet}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Neutrophils</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Neutrophils: {patientReport?.CBC?.neutrophils}
+                      </label>
                     </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label className='focus-label'>Lymphocytes</label>
-                      </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Lymphocytes: {patientReport?.CBC?.lymphocytes}
+                      </label>
                     </div>
                   </div>
                 </div>
 
                 {/* Order Lab Test */}
                 <div className='row'>
-                  <div className='row'>
+                  <div className='col-12'>
                     <div className='form-heading'>
                       <h4>Order Lab Test</h4>
-                      <div className='col-md-6'>
-                        <div className='form-group local-forms'>
-                          <label className='focus-label'>
-                            Tests Recommended:
-                          </label>
-                        </div>
-                      </div>
+                    </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group local-forms'>
+                      <label className='focus-label'>
+                        Tests Recommended:{" "}
+                        {patientReport?.LabTests?.cbc ? <span>CBC</span> : null}{" "}
+                        {patientReport?.LabTests?.bloodSmear ? (
+                          <span>bloodSmear</span>
+                        ) : null}
+                      </label>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className='notification-box'>
-          <div className='msg-sidebar notifications msg-noti'>
-            <div className='topnav-dropdown-header'>
-              <span>Messages</span>
-            </div>
-            <div className='drop-scroll msg-list-scroll' id='msg_list'>
-              <ul className='list-box'>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>R</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>Richard Miles </span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item new-message'>
-                      <div className='list-left'>
-                        <span className='avatar'>J</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>John Doe</span>
-                        <span className='message-time'>1 Aug</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>T</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>
-                          {" "}
-                          Tarah Shropshire{" "}
-                        </span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>M</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>Mike Litorus</span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>C</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>
-                          {" "}
-                          Catherine Manseau{" "}
-                        </span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>D</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>
-                          {" "}
-                          Domenic Houston{" "}
-                        </span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>B</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'> Buster Wigton </span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>R</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'> Rolland Webber </span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>C</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'> Claire Mapes </span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>M</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>Melita Faucher</span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>J</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>Jeffery Lalor</span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>L</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>Loren Gatlin</span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href='chat.html'>
-                    <div className='list-item'>
-                      <div className='list-left'>
-                        <span className='avatar'>T</span>
-                      </div>
-                      <div className='list-body'>
-                        <span className='message-author'>Tarah Shropshire</span>
-                        <span className='message-time'>12:28 AM</span>
-                        <div className='clearfix' />
-                        <span className='message-content'>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className='topnav-dropdown-footer'>
-              <a href='chat.html'>See all messages</a>
             </div>
           </div>
         </div>
