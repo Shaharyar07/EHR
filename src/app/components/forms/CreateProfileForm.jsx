@@ -84,7 +84,10 @@ const CreateProfileForm = () => {
                 <div className='col-md-6'>
                   <div className='form-group local-forms'>
                     <label className='focus-label'>Gender</label>
-                    <select
+                    <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }} 
                       className='form-control select'
                       name='gender'
                       value={profile.gender}
@@ -128,7 +131,10 @@ const CreateProfileForm = () => {
                 <div className='col-md-6'>
                   <div className='form-group local-forms'>
                     <label className='focus-label'>Martial Status</label>
-                    <select
+                    <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }} 
                       className='form-control select'
                       name='maritalStatus'
                       value={profile.maritalStatus}

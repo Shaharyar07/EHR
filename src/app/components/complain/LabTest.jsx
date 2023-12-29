@@ -45,7 +45,7 @@ const LabTest = ({ cbc, labTests, handleChange }) => {
                         <label className='focus-label'> WBC</label>
                         <input
                           className='form-control'
-                          type='text'
+                          type='number'
                           value={cbc.wbc}
                           onChange={handleChange}
                           name='cbc.wbc'
@@ -57,7 +57,7 @@ const LabTest = ({ cbc, labTests, handleChange }) => {
                         <label className='focus-label'> RBC</label>
                         <input
                           className='form-control'
-                          type='text'
+                          type='number'
                           value={cbc.rbc}
                           onChange={handleChange}
                           name='cbc.rbc'
@@ -69,7 +69,7 @@ const LabTest = ({ cbc, labTests, handleChange }) => {
                         <label className='focus-label'> Platelets</label>
                         <input
                           className='form-control'
-                          type='text'
+                          type='number'
                           value={cbc.platelet}
                           onChange={handleChange}
                           name='cbc.platelet'
@@ -82,7 +82,7 @@ const LabTest = ({ cbc, labTests, handleChange }) => {
                         <label className='focus-label'> Neutrophils</label>
                         <input
                           className='form-control'
-                          type='text'
+                          type='number'
                           value={cbc.neutrophils}
                           onChange={handleChange}
                           name='cbc.neutrophils'
@@ -120,6 +120,7 @@ const LabTest = ({ cbc, labTests, handleChange }) => {
                 value='cbc'
                 onChange={handleChange}
                 checked={labTests.cbc === "cbc"}
+                required
               />{" "}
               CBC
             </label>
@@ -133,6 +134,7 @@ const LabTest = ({ cbc, labTests, handleChange }) => {
                 value='bloodSmear'
                 onChange={handleChange}
                 checked={labTests.bloodSmear === "bloodSmear"}
+                required
               />
               Blood Smear Examination
             </label>

@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const AddVitals = ({ patients }) => {
+  const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState({
     patientId: "",
     bloodPressure: "",
@@ -24,6 +25,7 @@ const AddVitals = ({ patients }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     console.log(formState);
     try {
       const response = await axios.post("/api/vitals", formState);
@@ -33,7 +35,7 @@ const AddVitals = ({ patients }) => {
       if (data.status === 200) {
         toast.success("Vitals added successfully");
       } else {
-        toast.error(data.message);
+        toast.error(data.message || "Something went wrong");
       }
       setFormState({
         patientId: "",
@@ -44,6 +46,7 @@ const AddVitals = ({ patients }) => {
         weight: "",
         height: "",
       });
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -100,7 +103,7 @@ const AddVitals = ({ patients }) => {
             </label>
             <input
               className='form-control'
-              type='text'
+              type='number'
               name='bloodPressure'
               value={formState.bloodPressure}
               onChange={handleChange}
@@ -115,7 +118,7 @@ const AddVitals = ({ patients }) => {
             </label>
             <input
               className='form-control'
-              type='text'
+              type='number'
               name='pulseRate'
               value={formState.pulseRate}
               onChange={handleChange}
@@ -128,11 +131,11 @@ const AddVitals = ({ patients }) => {
         <div className=' col-md-6 '>
           <div className='form-group local-forms'>
             <label>
-              Temprature<span className='login-danger'>*</span>
+              Temperature Degree C^<span className='login-danger'>*</span>
             </label>
             <input
               className='form-control'
-              type='text'
+              type='number'
               name='temperature'
               value={formState.temperature}
               onChange={handleChange}
@@ -148,7 +151,7 @@ const AddVitals = ({ patients }) => {
             </label>
             <input
               className='form-control'
-              type='text'
+              type='number'
               name='respiratoryRate'
               value={formState.respiratoryRate}
               onChange={handleChange}
@@ -161,11 +164,11 @@ const AddVitals = ({ patients }) => {
         <div className='col-md-6 '>
           <div className='form-group local-forms'>
             <label>
-              Weight<span className='login-danger'>*</span>
+              Weight in KG<span className='login-danger'>*</span>
             </label>
             <input
               className='form-control'
-              type='text'
+              type='number'
               name='weight'
               value={formState.weight}
               onChange={handleChange}
@@ -177,7 +180,7 @@ const AddVitals = ({ patients }) => {
         <div className='col-md-6 '>
           <div className='form-group local-forms'>
             <label>
-              Height<span className='login-danger'>*</span>
+              Height in Feet<span className='login-danger'>*</span>
             </label>
             <input
               className='form-control'
@@ -191,8 +194,8 @@ const AddVitals = ({ patients }) => {
         </div>
       </div>
       <div className='col-md-12'>
-        <button type='submit' className=' btn btn-primary'>
-          Submit Vitals
+        <button type='submit' className=' btn btn-primary' disabled={loading}>
+          {loading ? "Saving..." : "Submit Vitals"}
         </button>
       </div>
     </form>

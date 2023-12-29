@@ -69,6 +69,9 @@ const UploadImage = ({ patients }) => {
             MR Number <span className='login-danger'>*</span>
           </label>
           <Select
+            styles={{
+              menu: (provided) => ({ ...provided, zIndex: 9999 }),
+            }}
             options={patients.map((patient) => ({
               label: patient.name,
               value: patient.id,

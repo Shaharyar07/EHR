@@ -40,6 +40,9 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                     Generalized Bone & Joint Pain
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='complainHistory.painCharacter'
                     onChange={handleSelectChange}
@@ -109,6 +112,9 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Timing</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='complainHistory.timing'
                     onChange={handleSelectChange}
@@ -128,6 +134,9 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                     Exacerbating & Alleviating Factor
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='complainHistory.alleviatingFactors'
                     onChange={handleSelectChange}
@@ -147,6 +156,9 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Sign & Symptoms</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='complainHistory.symptoms'
                     onChange={handleSelectChange}
@@ -199,7 +211,6 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                             complainHistory.severitySymptom ===
                             severityValue.toString()
                           }
-                          
                         />
                         {severityValue}
                       </label>

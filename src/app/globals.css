@@ -4278,6 +4278,7 @@ form .btn-secondary {
   /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
 }
 .form-control select {
+  z-index: 10;
   color: #212529ab;
 }
 

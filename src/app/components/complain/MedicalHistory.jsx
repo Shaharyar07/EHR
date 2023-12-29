@@ -59,6 +59,9 @@ const MedicalHistory = ({ medicalHistory, handleChange }) => {
           <div className='form-group local-forms'>
             <label className='focus-label'>Medication History </label>
             <Select
+              styles={{
+                menu: (provided) => ({ ...provided, zIndex: 9999 }),
+              }}
               className='form-control select'
               name='transfusionHistory.medicalHistory'
               onChange={handleSelectChange}

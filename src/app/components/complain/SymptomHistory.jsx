@@ -108,6 +108,9 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Constitutional Symptoms</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='constitutionalSymptoms'
                     isMulti
                     options={constitutionalSymptomsOptions}
@@ -115,7 +118,6 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     classNamePrefix='select'
                     onChange={handleSelectChange}
                     required
-                    
                   />
                 </div>
               </div>
@@ -125,6 +127,9 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Symptoms of Anemia</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='anemiaSymptoms'
                     className='basic-multi-select'
                     classNamePrefix='select'
@@ -141,6 +146,9 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Symptoms of Neutropenia</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='neutropeniaSymptoms'
                     onChange={handleSelectChange}
                     isMulti
@@ -164,6 +172,9 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     Symptoms of Thrombocytopenia
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='thromboembolismSymptoms'
                     onChange={handleSelectChange}
                     isMulti
@@ -180,6 +191,9 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Symptoms of Lymphoma</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='basic-multi-select'
                     classNamePrefix='select'
                     name='lumphomaSymptoms'
@@ -198,6 +212,9 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     Symptoms of Hyperviscosity
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='basic-multi-select'
                     classNamePrefix='select'
                     name='hyperviscositySymptoms'
@@ -216,6 +233,9 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     Symptoms of Thromboembolism
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='basic-multi-select'
                     classNamePrefix='select'
                     name='thromboembolismSymptoms'
@@ -234,6 +254,9 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     Duration of Signs and Symptoms
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='basic-multi-select'
                     classNamePrefix='select'
                     name='durationSymptom'

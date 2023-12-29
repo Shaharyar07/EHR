@@ -55,6 +55,9 @@ const TransfusionHistory = ({ transfusionHistory, handleChange }) => {
                     Any Transfusion recieved in the Past{" "}
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='transfusionHistory.transfusionInPast'
                     onChange={handleSelectChange}
@@ -68,6 +71,9 @@ const TransfusionHistory = ({ transfusionHistory, handleChange }) => {
                     Any Transfusion infection reaction{" "}
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='transfusionHistory.transfusionReaction'
                     onChange={handleSelectChange}
@@ -81,6 +87,9 @@ const TransfusionHistory = ({ transfusionHistory, handleChange }) => {
                     Any Transplant in the Past{" "}
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='transfusionHistory.transplant'
                     onChange={handleSelectChange}

@@ -74,6 +74,9 @@ const PhysicalExamination = ({ physicalExamination, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Eyes </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='physicalExamination.eyes'
                     onChange={handleSelectChange}
@@ -86,6 +89,9 @@ const PhysicalExamination = ({ physicalExamination, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Mouth Ulcers </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='physicalExamination.mouthUlcer'
                     onChange={handleSelectChange}
@@ -98,6 +104,9 @@ const PhysicalExamination = ({ physicalExamination, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Lymphadenopathy </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='physicalExamination.lymphadenopathy'
                     onChange={handleSelectChange}
@@ -109,6 +118,9 @@ const PhysicalExamination = ({ physicalExamination, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Visceral Examination</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='physicalExamination.visceralExamination'
                     onChange={handleSelectChange}
@@ -121,6 +133,9 @@ const PhysicalExamination = ({ physicalExamination, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Skin</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='physicalExamination.skin'
                     onChange={handleSelectChange}
@@ -133,6 +148,9 @@ const PhysicalExamination = ({ physicalExamination, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Mediastinal Masses</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='physicalExamination.mediationalMasses'
                     onChange={handleSelectChange}

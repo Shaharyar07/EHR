@@ -53,6 +53,9 @@ const FamilyHistory = ({ familyHistory, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Hematologic Malignancy</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     className='form-control select'
                     name='hematologicMalignancy'
                     options={hematologicMalignancyOptions}

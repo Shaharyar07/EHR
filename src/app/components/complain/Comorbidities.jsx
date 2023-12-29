@@ -89,6 +89,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Syndromes</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     isMulti
                     name='syndromes'
                     options={syndromesOptions}
@@ -102,6 +105,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Hepatitis</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     isMulti
                     name='hepatitis'
                     options={hepatitisOptions}
@@ -164,6 +170,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>TB</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='tb'
                     options={[
                       {
@@ -200,6 +209,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Chemotherapy</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='chemoTherapy'
                     options={[
                       {
@@ -236,6 +248,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Radiations</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='radiations'
                     options={[
                       {
@@ -257,6 +272,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Alcohol</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='alcohol'
                     options={[
                       {
@@ -278,6 +296,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Smoking</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='smoking'
                     options={[
                       {
@@ -314,6 +335,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Anemia</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     isMulti
                     name='anemia'
                     options={anemiaOptions}
@@ -327,6 +351,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>Platelet Disorder</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     isMulti
                     name='plateletDisorder'
                     options={plateletOptions}
@@ -342,6 +369,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                     History of Viral Infections
                   </label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     isMulti
                     name='viralInfection'
                     options={viralOptions}
@@ -355,6 +385,9 @@ const Comorbidities = ({ comorbidities, handleChange }) => {
                 <div className='form-group local-forms'>
                   <label className='focus-label'>HIV In Parent</label>
                   <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
                     name='HIV'
                     options={[
                       {
