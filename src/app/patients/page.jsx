@@ -61,7 +61,10 @@ export default async function Page() {
                   </div>
                 </div>
               </div>
-              <div className='table-responsive'>
+              <div
+                className='table-responsive'
+                style={{ maxHeight: "500px", overflow: "auto" }}
+              >
                 <table className='table border-0 custom-table comman-table datatable mb-0'>
                   <thead>
                     <tr>
