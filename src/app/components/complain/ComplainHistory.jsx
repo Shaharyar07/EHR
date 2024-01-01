@@ -50,7 +50,7 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                       { value: "Yes", label: "Yes" },
                       { value: "No", label: "No" },
                     ]}
-                    required
+                    
                   />
                 </div>
               </div>
@@ -104,7 +104,7 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                     name='complainHistory.radiatingPain'
                     value={complainHistory.radiatingPain}
                     onChange={handleChange}
-                    required
+                    
                   />
                 </div>
               </div>
@@ -124,7 +124,7 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                       { value: "Night", label: "Night" },
                       { value: "All Day", label: "All Day" },
                     ]}
-                    required
+                     
                   />
                 </div>
               </div>
@@ -144,7 +144,7 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                       { value: "Exacerbating", label: "Exacerbating" },
                       { value: "Alleviating", label: "Alleviating" },
                     ]}
-                    required
+                     
                   />
                 </div>
               </div>
@@ -166,7 +166,7 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                       { value: "Gradual", label: "Gradual" },
                       { value: "Sudden", label: "Sudden" },
                     ]}
-                    required
+                     
                   />
                 </div>
               </div>
@@ -183,7 +183,7 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                     value={complainHistory.swellingSite}
                     onChange={handleChange}
                     name='complainHistory.swellingSite'
-                    required
+                     
                   />
                 </div>
               </div>
