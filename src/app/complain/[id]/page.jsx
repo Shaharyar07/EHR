@@ -12,7 +12,7 @@ const getPatientProfile = async (id) => {
 export default async function Page({ params }) {
   const { id } = params;
   const patient = await getPatientProfile(id);
-  console.log("Complain:", patient);
+  // console.log("Complain:", patient);
   return (
     <div className='row '>
       <div className='col-sm-12'>

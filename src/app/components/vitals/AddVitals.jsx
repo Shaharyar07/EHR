@@ -26,12 +26,12 @@ const AddVitals = ({ patients }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
-    console.log(formState);
+    // console.log(formState);
     try {
       const response = await axios.post("/api/vitals", formState);
 
       const data = response?.data?.data;
-      console.log(data);
+      // console.log(data);
       if (data.status === 200) {
         toast.success("Vitals added successfully");
       } else {

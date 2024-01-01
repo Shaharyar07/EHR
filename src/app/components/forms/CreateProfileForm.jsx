@@ -29,7 +29,7 @@ const CreateProfileForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(profile);
+    // console.log(profile);
     try {
       const response = await axios.post("/api/demographics", profile);
       console.log(response.data);

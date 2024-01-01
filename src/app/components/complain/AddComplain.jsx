@@ -108,7 +108,7 @@ const AddComplain = ({ patient }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formState);
+    // console.log(formState);
     setLoading(true);
 
     try {

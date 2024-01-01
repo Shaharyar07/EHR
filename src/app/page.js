@@ -4,7 +4,7 @@ import morning from "./assets/img/morning-img-01.png";
 import { useSession } from "next-auth/react";
 export default function Home() {
   const session = useSession();
-  console.log("Session: ", session);
+  // console.log("Session: ", session);
   return (
     <main className='content mt-5'>
       <div className='good-morning-blk mt-5'>
