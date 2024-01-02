@@ -103,7 +103,7 @@ const AddVitals = ({ patients }) => {
             </label>
             <input
               className='form-control'
-              type='number'
+              type='text'
               name='bloodPressure'
               value={formState.bloodPressure}
               onChange={handleChange}

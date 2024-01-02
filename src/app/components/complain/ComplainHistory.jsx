@@ -50,7 +50,6 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                       { value: "Yes", label: "Yes" },
                       { value: "No", label: "No" },
                     ]}
-                    
                   />
                 </div>
               </div>
@@ -104,7 +103,6 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                     name='complainHistory.radiatingPain'
                     value={complainHistory.radiatingPain}
                     onChange={handleChange}
-                    
                   />
                 </div>
               </div>
@@ -124,7 +122,6 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                       { value: "Night", label: "Night" },
                       { value: "All Day", label: "All Day" },
                     ]}
-                     
                   />
                 </div>
               </div>
@@ -141,10 +138,15 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                     name='complainHistory.alleviatingFactors'
                     onChange={handleSelectChange}
                     options={[
-                      { value: "Exacerbating", label: "Exacerbating" },
-                      { value: "Alleviating", label: "Alleviating" },
+                      {
+                        value: "Exacerbates with activity",
+                        label: "Exacerbates with activity",
+                      },
+                      {
+                        value: "Alleviates with rest",
+                        label: "Alleviates with rest",
+                      },
                     ]}
-                     
                   />
                 </div>
               </div>
@@ -166,7 +168,6 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                       { value: "Gradual", label: "Gradual" },
                       { value: "Sudden", label: "Sudden" },
                     ]}
-                     
                   />
                 </div>
               </div>
@@ -183,7 +184,6 @@ const ComplainHistory = ({ complainHistory, handleChange }) => {
                     value={complainHistory.swellingSite}
                     onChange={handleChange}
                     name='complainHistory.swellingSite'
-                     
                   />
                 </div>
               </div>
