@@ -117,7 +117,7 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     className='basic-multi-select'
                     classNamePrefix='select'
                     onChange={handleSelectChange}
-                    required
+                    
                   />
                 </div>
               </div>
@@ -136,7 +136,7 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     isMulti
                     options={anemiaSymptomsOptions}
                     onChange={handleSelectChange}
-                    required
+                    
                   />
                 </div>
               </div>
@@ -160,7 +160,7 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                         value: "Recurrent Infections",
                       },
                     ]}
-                    required
+                    
                   />
                 </div>
               </div>
@@ -179,7 +179,7 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     onChange={handleSelectChange}
                     isMulti
                     options={thrombocytopeniaSymptomsOptions}
-                    required
+                    
                     className='basic-multi-select'
                     classNamePrefix='select'
                   />
@@ -200,7 +200,7 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     onChange={handleSelectChange}
                     options={lymphomaSymptomsOptions}
                     isMulti
-                    required
+                    
                   />
                 </div>
               </div>
@@ -221,7 +221,7 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     onChange={handleSelectChange}
                     options={hyperviscositySymptomsOptions}
                     isMulti
-                    required
+                    
                   />
                 </div>
               </div>
@@ -242,7 +242,7 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     onChange={handleSelectChange}
                     options={thromboembolismSymptomsOptions}
                     isMulti
-                    required
+                    
                   />
                 </div>
               </div>
@@ -262,7 +262,7 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     name='durationSymptom'
                     onChange={handleSelectChange}
                     options={durationSymptomsOptions}
-                    required
+                    
                   />
                 </div>
               </div>
