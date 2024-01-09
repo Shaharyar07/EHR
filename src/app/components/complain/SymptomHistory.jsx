@@ -64,13 +64,13 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
     { value: "Chronic", label: "Chronic" },
   ];
 
-  // const cnsSymptomsOptions = [
-  //   { value: "Seizure", label: "Seizure" },
-  //   { value: "Imbalance", label: "Imbalance" },
-  //   { value: "Facial Muscle Weakness", label: "Facial Muscle Weakness" },
-  //   { value: "Blurred Vision", label: "Blurred Vision" },
-  //   { value: "Headache", label: "Headache" },
-  // ];
+  const cnsSymptomsOptions = [
+    { value: "Seizure", label: "Seizure" },
+    { value: "Imbalance", label: "Imbalance" },
+    { value: "Facial Muscle Weakness", label: "Facial Muscle Weakness" },
+    { value: "Blurred Vision", label: "Blurred Vision" },
+    { value: "Headache", label: "Headache" },
+  ];
 
   const handleSelectChange = (selectedOptions, { name }) => {
     // Ensure selectedOptions is an array
@@ -117,7 +117,6 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     className='basic-multi-select'
                     classNamePrefix='select'
                     onChange={handleSelectChange}
-                    
                   />
                 </div>
               </div>
@@ -136,7 +135,6 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     isMulti
                     options={anemiaSymptomsOptions}
                     onChange={handleSelectChange}
-                    
                   />
                 </div>
               </div>
@@ -160,7 +158,6 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                         value: "Recurrent Infections",
                       },
                     ]}
-                    
                   />
                 </div>
               </div>
@@ -179,7 +176,6 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     onChange={handleSelectChange}
                     isMulti
                     options={thrombocytopeniaSymptomsOptions}
-                    
                     className='basic-multi-select'
                     classNamePrefix='select'
                   />
@@ -200,7 +196,6 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     onChange={handleSelectChange}
                     options={lymphomaSymptomsOptions}
                     isMulti
-                    
                   />
                 </div>
               </div>
@@ -221,7 +216,6 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     onChange={handleSelectChange}
                     options={hyperviscositySymptomsOptions}
                     isMulti
-                    
                   />
                 </div>
               </div>
@@ -242,7 +236,6 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     onChange={handleSelectChange}
                     options={thromboembolismSymptomsOptions}
                     isMulti
-                    
                   />
                 </div>
               </div>
@@ -262,7 +255,24 @@ const SymptomHistory = ({ symptomHistory, handleChange }) => {
                     name='durationSymptom'
                     onChange={handleSelectChange}
                     options={durationSymptomsOptions}
-                    
+                  />
+                </div>
+              </div>
+
+              {/* CNS Symptoms */}
+              <div className='col-md-6'>
+                <div className='form-group local-forms'>
+                  <label className='focus-label'>CNS Symptoms</label>
+                  <Select
+                    styles={{
+                      menu: (provided) => ({ ...provided, zIndex: 9999 }),
+                    }}
+                    className='basic-multi-select'
+                    classNamePrefix='select'
+                    name='cncSymptoms'
+                    onChange={handleSelectChange}
+                    options={cnsSymptomsOptions}
+                    isMulti
                   />
                 </div>
               </div>

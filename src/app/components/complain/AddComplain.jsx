@@ -37,6 +37,7 @@ const AddComplain = ({ patient }) => {
       lumphomaSymptoms: [],
       hyperviscositySymptoms: [],
       durationSymptom: "",
+      cncSymptoms: [],
     },
     familyHistory: {
       hematologicMalignancy: [],
@@ -87,7 +88,6 @@ const AddComplain = ({ patient }) => {
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // console.log(name, value);
 
     // Handling nested state
     const nameParts = name.split(".");
@@ -108,13 +108,13 @@ const AddComplain = ({ patient }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(formState);
+
     setLoading(true);
 
     try {
       const response = await axios.post(
         "/api/complain",
-        
+
         formState
       );
       const data = response?.data?.data;
