@@ -56,7 +56,7 @@ export default async function Page({ params }) {
                   <div className='row'>
                     <div className='col-12 col-md-6'>
                       <div className='invoice-counts float-end'>
-                        <h4 className='text-center'>
+                        <h3 className='text-center'>
                           Status:{" "}
                           <>
                             {patientReport?.cancer === null ? (
@@ -67,7 +67,7 @@ export default async function Page({ params }) {
                               <span className='status-green'>Healthy</span>
                             )}
                           </>
-                        </h4>
+                        </h3>
                       </div>
                     </div>
                   </div>
@@ -100,51 +100,63 @@ export default async function Page({ params }) {
                   <div className='row'>
                     <div className='col-12'>
                       <div className='form-heading'>
-                        <h4>Patient Vitals</h4>
+                        <h3>Patient Vitals</h3>
                       </div>
                     </div>
                     <div className='col-md-12'>
                       <div className='form-group local-forms'>
-                        <label>MR Num: {patientReport?.id}</label>
+                        <p>
+                          <strong>MR Num: </strong>
+                          {patientReport?.id}
+                        </p>
                       </div>
                     </div>
                     <div className='col-md-6'>
                       <div className='form-group local-forms'>
-                        <label>
-                          BP: {patientReport?.vitals?.bloodPressure}
-                        </label>
+                        <p>
+                          <strong>Blood Pressure: </strong>
+                          {patientReport?.vitals?.bloodPressure}
+                        </p>
                       </div>
                     </div>
                     <div className='col-md-6'>
                       <div className='form-group local-forms'>
-                        <label>
-                          Pulse Rate: {patientReport?.vitals?.pulseRate}
-                        </label>
+                        <p>
+                          <strong>Pulse Rate: </strong>
+                          {patientReport?.vitals?.pulseRate}
+                        </p>
                       </div>
                     </div>
                     <div className='col-md-6'>
                       <div className='form-group local-forms'>
-                        <label>
-                          Temperature: {patientReport?.vitals?.temperature}
-                        </label>
-                      </div>
-                    </div>
-                    <div className='col-md-6'>
-                      <div className='form-group local-forms'>
-                        <label>
-                          Respiratory Rate:{" "}
+                        <p>
+                          <strong>Respiratory Rate: </strong>
                           {patientReport?.vitals?.respiratoryRate}
-                        </label>
+                        </p>
                       </div>
                     </div>
                     <div className='col-md-6'>
                       <div className='form-group local-forms'>
-                        <label>Weight: {patientReport?.vitals?.weight}</label>
+                        <p>
+                          <strong>Temperature: </strong>
+                          {patientReport?.vitals?.temperature}
+                        </p>
                       </div>
                     </div>
                     <div className='col-md-6'>
                       <div className='form-group local-forms'>
-                        <label>Height: {patientReport?.vitals?.height}</label>
+                        <p>
+                          <strong>Weight: </strong>
+                          {patientReport?.vitals?.weight}
+                        </p>
+                      </div>
+                    </div>
+                    <div className='col-md-6'>
+                      <div className='form-group local-forms'>
+                        <p>
+                          <strong>Height: </strong>
+                          {patientReport?.vitals?.height}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -152,12 +164,15 @@ export default async function Page({ params }) {
                   <div className='row'>
                     <div className='col-12'>
                       <div className='form-heading'>
-                        <h4>Patient Vitals</h4>
+                        <h3>Patient Vitals</h3>
                       </div>
                     </div>
                     <div className='col-md-12'>
                       <div className='form-group local-forms'>
-                        <label>MR Num: {patientReport?.id}</label>
+                        <p>
+                          <strong>MR Num: </strong>
+                          {patientReport?.id}
+                        </p>
                       </div>
                     </div>
                     <div className='col-md-12'>
@@ -174,45 +189,49 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Pain</h4>
+                      <h3>Pain</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Generalized Bone & Joint Pain:{" "}
+                      <p>
+                        <strong>Generalized Bone & Joint Pain: </strong>
                         {patientReport?.complainHistory?.painCharacter}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='gen-label'>
-                        Site: {patientReport?.complainHistory?.painSite}
-                      </label>
+                      <p>
+                        <strong>Pain Site: </strong>
+                        {patientReport?.complainHistory?.painSite}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Unilateral or Bilateral Localized Site:{" "}
+                      <p>
+                        <strong>
+                          Unilateral or Bilateral Localized Site:{" "}
+                        </strong>
                         {patientReport?.complainHistory?.radiatingPain}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Timing: {patientReport?.complainHistory?.timing}
-                      </label>
+                      <p>
+                        <strong>Pain Duration: </strong>
+                        {patientReport?.complainHistory?.timing}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Exacerbating & Alleviating Factor:{" "}
+                      <p>
+                        <strong> Exacerbating & Alleviating Factor: </strong>
                         {patientReport?.complainHistory?.alleviatingFactors}
-                      </label>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -220,27 +239,28 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Onset of Sign & Symptoms</h4>
+                      <h3>Onset of Sign & Symptoms</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Sign & Symptoms:{" "}
+                      <p>
+                        <strong>Signs & Symptoms Started: </strong>
                         {patientReport?.complainHistory?.symptoms}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Swelling</h4>
+                      <h3>Swelling</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Site: {patientReport?.complainHistory?.swellingSite}
-                      </label>
+                      <p>
+                        <strong>Swelling Site: </strong>
+                        {patientReport?.complainHistory?.swellingSite}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -248,15 +268,15 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Severity of Symptoms</h4>
+                      <h3>Severity of Symptoms</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='gen-label'>
-                        Severity of Symptoms::{" "}
+                      <p>
+                        <strong>Severity of Symptoms: </strong>
                         {patientReport?.complainHistory?.severitySymptom}
-                      </label>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -265,71 +285,74 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Signs & Symptoms</h4>
+                      <h3>Signs & Symptoms</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Constitutional Symptoms:{" "}
+                      <p>
+                        <strong>ConstitutionalSymptoms: </strong>
                         {patientReport?.symptomHistory?.constitutionalSymptoms}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Symptoms of Anemia:{" "}
+                      <p>
+                        <strong>Symptoms of Anemia: </strong>
                         {patientReport?.symptomHistory?.anemiaSymptoms}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Symptoms of Neutropenia:{" "}
+                      <p>
+                        <strong>Symptoms of Neutropenia: </strong>
                         {patientReport?.symptomHistory?.neutropeniaSymptoms}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Symptoms of Thrombocytopenia:{" "}
-                        {patientReport?.symptomHistory?.thromboembolismSymptoms}
-                      </label>
+                      <p>
+                        <strong>Symptoms of Thrombocytopenia: </strong>
+                        {
+                          patientReport?.symptomHistory
+                            ?.thrombocytopeniaSymptoms
+                        }
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Symptoms of Lymphoma:{" "}
+                      <p>
+                        <strong>Symptoms of Lymphoma:</strong>
                         {patientReport?.symptomHistory?.lumphomaSymptoms}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Symptoms of Hyperviscosity:{" "}
+                      <p>
+                        <strong>Symptoms of Hyperviscosity: </strong>
                         {patientReport?.symptomHistory?.hyperviscositySymptoms}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Symptoms of Thromboembolism:{" "}
+                      <p>
+                        <strong>Symptoms of Thromboembolism: </strong>
                         {patientReport?.symptomHistory?.thromboembolismSymptoms}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Duration of Signs and Symptoms:{" "}
+                      <p>
+                        <strong>Duration of Symptoms: </strong>
                         {patientReport?.symptomHistory?.durationSymptom}
-                      </label>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -337,17 +360,17 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Family History</h4>
+                      <h3>Family History</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Hematologic Malignancy:{" "}
+                      <p>
+                        <strong>Hematological Malignancy: </strong>
                         {patientReport?.familyHistory?.hematologicMalignancy.join(
                           ", "
                         )}
-                      </label>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -356,132 +379,139 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Comorbidities</h4>
+                      <h3>Comorbidities</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Syndromes:{" "}
+                      <p>
+                        <strong>Syndromes: </strong>
                         {patientReport?.comorbidities?.syndromes.join(", ")}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Hepatitis:{" "}
+                      <p>
+                        <strong>Hepatitis: </strong>
                         {patientReport?.comorbidities?.hepatitis.join(", ")}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label>
-                        Diabetes: {patientReport?.comorbidities?.diabetes}
-                      </label>
+                      <p>
+                        <strong>Diabetes: </strong>
+                        {patientReport?.comorbidities?.diabetes}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label>
-                        Any Surgery in the Past:{" "}
+                      <p>
+                        <strong>Surgery in the past: </strong>
                         {patientReport?.comorbidities?.surgeryInPast}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        TB: {patientReport?.comorbidities?.tb}
-                      </label>
+                      <p>
+                        <strong>TB: </strong>
+                        {patientReport?.comorbidities?.tb}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label>
-                        Chemicals:{" "}
+                      <p>
+                        <strong>Chemical Exposure: </strong>
                         {patientReport?.comorbidities?.chemicalExposure}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Chemotherapy:{" "}
+                      <p>
+                        <strong>Chemotherapy: </strong>
                         {patientReport?.comorbidities?.chemotherapy}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label>
-                        Toxins: {patientReport?.comorbidities?.toxicExposure}
-                      </label>
+                      <p>
+                        <strong>Toxins: </strong>
+                        {patientReport?.comorbidities?.toxicExposure}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Radiations: {patientReport?.comorbidities?.radiations}
-                      </label>
+                      <p>
+                        <strong>Radiations: </strong>
+                        {patientReport?.comorbidities?.radiations}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Alcohol: {patientReport?.comorbidities?.alcohol}
-                      </label>
+                      <p>
+                        <strong>Alcohol: </strong>
+                        {patientReport?.comorbidities?.alcohol}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Smoking: {patientReport?.comorbidities?.smoking}
-                      </label>
+                      <p>
+                        <strong>Smoking:</strong>
+                        {patientReport?.comorbidities?.smoking}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label>
-                        History of any type of Cancer:{" "}
-                        {patientReport?.comorbidities?.cancerOfHistory}
-                      </label>
+                      <p>
+                        <strong>History of Cancer:</strong>
+                        {patientReport?.comorbidities?.historyOfCancer}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Anemia:{" "}
+                      <p>
+                        <strong>Anemia</strong>
                         {patientReport?.comorbidities?.anemia.join(", ")}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Platelet Disorder:{" "}
+                      <p>
+                        <strong>Platelets Disorder: </strong>
                         {patientReport?.comorbidities?.plateletDisorder.join(
                           ", "
                         )}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Viral Infections:{" "}
+                      <p>
+                        <strong>Viral Infection:</strong>
                         {patientReport?.comorbidities?.viralInfection.join(
                           ", "
                         )}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        HIV In Parent: {patientReport?.comorbidities?.HIV}
-                      </label>
+                      <p>
+                        <strong>HIV: </strong>
+                        {patientReport?.comorbidities?.HIV}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -490,40 +520,40 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Transfusion and Transplant History </h4>
+                      <h3>Transfusion and Transplant History </h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Any Transfusion received in the Past:{" "}
+                      <p>
+                        <strong>Any Transfusion in the Past : </strong>
                         {
                           patientReport?.TransfusionAndTransplantHistory
                             ?.transfusionInPast
                         }
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Any Transfusion infection reaction :{" "}
+                      <p>
+                        <strong>Any Transfusion reaction: </strong>
                         {
                           patientReport?.TransfusionAndTransplantHistory
                             ?.transfusionReaction
                         }
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Any Transplant in the Past :{" "}
+                      <p>
+                        <strong>Any Transplant in the Past: </strong>
                         {
                           patientReport?.TransfusionAndTransplantHistory
                             ?.transplant
                         }
-                      </label>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -532,17 +562,17 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Medication History</h4>
+                      <h3>Medication History</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Medication History: :{" "}
+                      <p>
+                        <strong>Medical History: </strong>
                         {patientReport?.TransfusionAndTransplantHistory?.medicalHistory?.join(
                           ", "
                         )}
-                      </label>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -551,59 +581,60 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Physical Examination</h4>
+                      <h3>Physical Examination</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Eyes:{" "}
+                      <p>
+                        <strong>Eyes: </strong>
                         {patientReport?.PhysicalExamination?.eyes?.join(", ")}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Mouth Ulcers:{" "}
+                      <p>
+                        <strong>Mouth Ulcer: </strong>
+
                         {patientReport?.PhysicalExamination?.mouthUlcer?.join(
                           ", "
                         )}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Lymphadenopathy:{" "}
+                      <p>
+                        <strong>Lymphadenopathy: </strong>
                         {patientReport?.PhysicalExamination?.lymphadenopathy}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Visceral Examination:{" "}
+                      <p>
+                        <strong>Visceral Examination: </strong>
                         {patientReport?.PhysicalExamination?.visceralExamination?.join(
                           ", "
                         )}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Skin:{" "}
+                      <p>
+                        <strong>Skin: </strong>
                         {patientReport?.PhysicalExamination?.skin?.join(", ")}
-                      </label>
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Mediastinal Masses:{" "}
+                      <p>
+                        <strong>Mediational Masses: </strong>{" "}
                         {patientReport?.PhysicalExamination?.mediationalMasses}
-                      </label>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -612,42 +643,48 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>CBC If Available</h4>
+                      <h3>CBC If Available</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        WBC: {patientReport?.CBC?.wbc}
-                      </label>
+                      <p>
+                        <strong>WBC: </strong>
+                        {patientReport?.CBC?.wbc}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        RBC: {patientReport?.CBC?.rbc}
-                      </label>
+                      {" "}
+                      <p>
+                        <strong>RBC: </strong>
+                        {patientReport?.CBC?.rbc}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Platelets: {patientReport?.CBC?.platelet}
-                      </label>
+                      <p>
+                        <strong>Platelets:: </strong>
+                        {patientReport?.CBC?.platelet}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Neutrophils: {patientReport?.CBC?.neutrophils}
-                      </label>
+                      <p>
+                        <strong>Neutrophils: </strong>
+                        {patientReport?.CBC?.neutrophils}
+                      </p>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Lymphocytes: {patientReport?.CBC?.lymphocytes}
-                      </label>
+                      <p>
+                        <strong>Lymphocytes: </strong>
+                        {patientReport?.CBC?.lymphocytes}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -656,18 +693,20 @@ export default async function Page({ params }) {
                 <div className='row'>
                   <div className='col-12'>
                     <div className='form-heading'>
-                      <h4>Order Lab Test</h4>
+                      <h3>Order Lab Test</h3>
                     </div>
                   </div>
                   <div className='col-md-6'>
                     <div className='form-group local-forms'>
-                      <label className='focus-label'>
-                        Tests Recommended:{" "}
-                        {patientReport?.LabTests?.cbc ? <span>CBC</span> : null}{" "}
+                      <p>
+                        <strong>Lab Test: </strong>
+                        {patientReport?.LabTests?.cbc ? (
+                          <span>CBC</span>
+                        ) : null}{" "}
                         {patientReport?.LabTests?.bloodSmear ? (
                           <span>bloodSmear</span>
                         ) : null}
-                      </label>
+                      </p>
                     </div>
                   </div>
                 </div>
