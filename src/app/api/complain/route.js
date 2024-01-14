@@ -1,9 +1,7 @@
 import prisma from "@app/utils/prismadb";
 
 export async function POST(request) {
-  // console.log(prisma);
   const body = await request.json();
-  console.log(body);
 
   const {
     patientId,
@@ -43,13 +41,11 @@ export async function POST(request) {
       alleviatingFactors: complainHistory?.alleviatingFactors[0],
       symptoms: complainHistory?.symptoms[0],
     };
-    // console.log("Complain Formatted: ", complainHistoryFormatted);
 
     const symptomHistoryFormatted = {
       ...symptomHistory,
       durationSymptom: symptomHistory.durationSymptom[0],
     };
-    // console.log("Symptom Formatted: ", symptomHistoryFormatted);
 
     const comorbiditiesFormatted = {
       ...comorbidities,
@@ -60,18 +56,14 @@ export async function POST(request) {
       alcohol: comorbidities.alcohol[0],
       historyOfCancer: comorbidities.historyOfCancer[0],
       HIV: comorbidities.HIV[0],
+      surgeryInPast: comorbidities.surgeryInPast[0],
     };
 
-    // console.log("Comorbidities Formatted: ", comorbiditiesFormatted);
     const physicalExaminationFormatted = {
       ...physicalExamination,
       lymphadenopathy: physicalExamination.lymphadenopathy[0],
       mediationalMasses: physicalExamination.mediationalMasses[0],
     };
-    // console.log(
-    //   "Physical Examination Formatted: ",
-    //   physicalExaminationFormatted
-    // );
 
     const transfusionHistoryFormatted = {
       ...transfusionHistory,
@@ -80,7 +72,7 @@ export async function POST(request) {
       transplant: transfusionHistory.transplant[0],
       medicalHistory: transfusionHistory.medicalHistory.medicalHistory,
     };
-    // console.log("Transfusion History Formatted: ", transfusionHistoryFormatted);
+
     const [
       newComplaint,
       newComplainHistory,
@@ -191,7 +183,7 @@ export async function POST(request) {
       JSON.stringify({
         data: {
           status: 500,
-          error: "Some error occurred with creating a complain",
+          message: "Some error occurred with creating a complain",
         },
       })
     );

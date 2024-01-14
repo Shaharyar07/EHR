@@ -121,10 +121,10 @@ const AddComplain = ({ patient }) => {
       if (data.status === 200) {
         toast.success("Complain created successfully");
         setLoading(false);
-        revalidatePath(`/patientprofile/${patient.id}`);
-        router.push(`/patientprofile/${patient.id}`);
+        revalidatePath(`/patients`);
+        router.push(`/patients`);
       } else {
-        toast.error(data.message);
+        toast.error(data.error);
         setLoading(false);
       }
       setFormState({

@@ -200,7 +200,7 @@ const CreateProfileForm = () => {
                     className='btn btn-primary btn-rounded mt-4 float-right'
                     disabled={pending}
                   >
-                    Create Profile
+                    {pending ? "Create Profile" : "Creating Profile"}
                   </button>
                 </div>
               </div>
